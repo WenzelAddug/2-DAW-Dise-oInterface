@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Web de Wenzel Addug sobre su experiencia como alumno del IES Tetuán de las Victorias.">
+    <meta name="author" content="Wenzel Addug">
+    <title>Inicio | Mi instituto</title>
+
+    <!-- Favicono: en la pestaña va la versión simple (sin cruceta ni botones) y en el móvil la completa -->
+    <link rel="icon" type="image/svg+xml" href="favicon/favicon-simple.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16.png">
+    <link rel="apple-touch-icon" href="favicon/apple-touch-icon.png">
+
+    <!-- Iconos de Font Awesome (descargados en la carpeta fontawesome) -->
+    <link rel="stylesheet" href="fontawesome/css/fontawesome.min.css">
+    <link rel="stylesheet" href="fontawesome/css/solid.min.css">
+
+    <!-- Mi hoja de estilos -->
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+
+    <!-- Enlace para saltar el menú con el teclado (solo se ve al pulsar Tab) -->
+    <a href="#contenido" class="saltar">Saltar al contenido</a>
+
+    <!-- ===================== CABECERA ===================== -->
+    <header class="cabecera" id="arriba">
+        <div class="contenedor cabecera-contenido">
+            <a href="index.html" class="logo">
+                <img src="favicon/favicon.svg" alt="" width="40" height="40">
+                <span class="logo-texto">
+                    <span class="logo-nombre">Mi instituto</span>
+                    <span class="logo-centro">IES Tetuán de las Victorias</span>
+                </span>
+            </a>
+
+            <!-- Menú del móvil: uso un checkbox oculto y su label como botón (sin JavaScript) -->
+            <input type="checkbox" id="menu-movil" class="menu-check">
+            <label for="menu-movil" class="menu-boton">
+                <i class="fa-solid fa-bars icono-abrir" aria-hidden="true"></i>
+                <i class="fa-solid fa-xmark icono-cerrar" aria-hidden="true"></i>
+                <span class="oculto">Abrir o cerrar el menú</span>
+            </label>
+
+            <nav class="menu" aria-label="Menú principal">
+                <ul class="menu-lista">
+                    <li><a href="index.html" class="activo" aria-current="page">Inicio <i class="fa-solid fa-chevron-right" aria-hidden="true"></i></a></li>
+                    <li><a href="centro.html">El centro <i class="fa-solid fa-chevron-right" aria-hidden="true"></i></a></li>
+                    <li><a href="estudios.html">Mis estudios <i class="fa-solid fa-chevron-right" aria-hidden="true"></i></a></li>
+                </ul>
+                <!-- Esto solo se ve cuando el menú está abierto en el móvil -->
+                <div class="menu-datos">
+                    <p class="menu-datos-centro">IES Tetuán de las Victorias</p>
+                    <p>C/ Vía Límite, 14, 28029 Madrid</p>
+                    <p>91 314 67 06</p>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main id="contenido">
+
+        <!-- ===================== HERO (modo carrera) ===================== -->
+        <section class="hero">
+            <div class="contenedor hero-contenido">
+
+                <div class="hero-texto">
+                    <p class="chip"><i class="fa-solid fa-gamepad" aria-hidden="true"></i> Modo carrera: 2º de DAW</p>
+                    <h1 class="titulo-display">Hola, soy Wenzel</h1>
+                    <p class="hero-entradilla">Estudio 2º de Desarrollo de Aplicaciones Web (DAW) en el IES Tetuán de las Victorias. Llegué en 2022 para hacer el Grado Medio de SMR y aquí sigo. En esta web te cuento cómo es el centro y lo que he aprendido en él.</p>
+                    <div class="botones">
+                        <a href="centro.html" class="boton boton-principal">Conoce el centro</a>
+                        <a href="estudios.html" class="boton boton-oscuro">Ver mis estudios</a>
+                    </div>
+                </div>
+
+                <!-- Ficha de jugador, como las cartas de los juegos de fútbol -->
+                <aside class="ficha" aria-label="Mi ficha de jugador">
+                    <div class="ficha-cabecera">
+                        <span class="etiqueta etiqueta-naranja ficha-nivel">Nivel 3</span>
+                        <img class="ficha-escudo" src="img/logo-ies-tetuan.png" alt="Escudo del equipo: logotipo del IES Tetuán de las Victorias" width="76" height="48">
+                        <span class="ficha-curso">Curso 2026-2027</span>
+                        <img class="ficha-foto" src="favicon/favicon.svg" alt="Mi favicono: un mando de videojuego con una W" width="120" height="120">
+                    </div>
+                    <div class="ficha-datos">
+                        <p class="ficha-nombre">Wenzel Addug</p>
+                        <p class="ficha-rol">Desarrollador web en formación</p>
+                        <ul class="ficha-lista">
+                            <li><span><i class="fa-solid fa-school" aria-hidden="true"></i> Equipo</span> <strong>IES Tetuán</strong></li>
+                            <li><span><i class="fa-solid fa-calendar" aria-hidden="true"></i> En el centro desde</span> <strong>2022</strong></li>
+                            <li><span><i class="fa-solid fa-graduation-cap" aria-hidden="true"></i> Ciclo actual</span> <strong>2º de DAW</strong></li>
+                            <li><span><i class="fa-solid fa-flag-checkered" aria-hidden="true"></i> Próximo objetivo</span> <strong>FFE en 2027</strong></li>
+                        </ul>
+                        <div class="progreso">
+                            <p><span>Progreso en DAW</span> <strong>Curso 2 de 2</strong></p>
+                            <div class="barra" aria-hidden="true"><span class="barra-relleno"></span></div>
+                        </div>
+                    </div>
+                </aside>
+
+            </div>
+        </section>
+
+        <!-- ===================== MI CAMINO EN EL TETUÁN ===================== -->
+        <section class="seccion" id="mi-camino">
+            <div class="contenedor">
+                <div class="encabezado-seccion">
+                    <h2>Mi camino en el Tetuán</h2>
+                    <p class="entradilla">Lo cuento como un modo carrera: cada curso es un nivel superado. Así he llegado hasta aquí.</p>
+                </div>
+
+                <!-- Línea de niveles (en móvil va en vertical y en escritorio en horizontal) -->
+                <ol class="niveles">
+                    <li class="nivel nivel-hecho">
+                        <span class="nivel-punto"><i class="fa-solid fa-check" aria-hidden="true"></i></span>
+                        <p class="nivel-numero">Nivel 1</p>
+                        <p class="nivel-anio">2022</p>
+                        <h3>Grado Medio SMR</h3>
+                        <p class="nivel-texto">Llegué al Tetuán para estudiar Sistemas Microinformáticos y Redes: montaje de equipos, redes y sistemas operativos.</p>
+                    </li>
+                    <li class="nivel nivel-hecho">
+                        <span class="nivel-punto"><i class="fa-solid fa-check" aria-hidden="true"></i></span>
+                        <p class="nivel-numero">Nivel 2</p>
+                        <p class="nivel-anio">2025</p>
+                        <h3>1º de DAW</h3>
+                        <p class="nivel-texto">Empecé el Grado Superior: Java, bases de datos, HTML, CSS y JavaScript. Aprobé todos los módulos del primer curso.</p>
+                    </li>
+                    <li class="nivel nivel-actual">
+                        <span class="nivel-punto"><i class="fa-solid fa-location-dot" aria-hidden="true"></i></span>
+                        <p class="nivel-numero">Nivel 3 <span class="etiqueta etiqueta-naranja">Estás aquí</span></p>
+                        <p class="nivel-anio">2026</p>
+                        <h3>2º de DAW</h3>
+                        <p class="nivel-texto">Diseño de interfaces, servidor y despliegue. Esta web es uno de los proyectos de este curso.</p>
+                    </li>
+                    <li class="nivel nivel-bloqueado">
+                        <span class="nivel-punto"><i class="fa-solid fa-lock" aria-hidden="true"></i></span>
+                        <p class="nivel-numero">Nivel 4</p>
+                        <p class="nivel-anio">2027</p>
+                        <h3>FFE en una empresa</h3>
+                        <p class="nivel-texto">Mis prácticas. He pedido el Erasmus+ del centro para hacerlas en Alemania.</p>
+                    </li>
+                    <li class="nivel nivel-meta">
+                        <span class="nivel-punto"><i class="fa-solid fa-flag-checkered" aria-hidden="true"></i></span>
+                        <p class="nivel-numero">Meta</p>
+                        <p class="nivel-anio">Después</p>
+                        <h3>Ser desarrollador web</h3>
+                        <p class="nivel-texto">Mi objetivo es empezar a trabajar en cuanto termine el ciclo.</p>
+                    </li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- ===================== MI FAVICONO ===================== -->
+        <section class="seccion seccion-blanca" id="mi-favicono">
+            <div class="contenedor favicono">
+
+                <div class="favicono-texto">
+                    <div class="encabezado-seccion">
+                        <h2>Mi favicono</h2>
+                        <p class="entradilla">Es un mando de videojuego con una W en el centro. Lo he diseñado yo y aparece en la pestaña del navegador en las tres páginas. Estas son las razones por las que me representa:</p>
+                    </div>
+                    <ul class="razones">
+                        <li class="razon">
+                            <span class="insignia"><i class="fa-solid fa-user" aria-hidden="true"></i></span>
+                            <div>
+                                <h3>La W es de Wenzel</h3>
+                                <p>Es mi inicial. La he dibujado con trazos en zigzag que recuerdan a los símbolos &lt; &gt; del código.</p>
+                            </div>
+                        </li>
+                        <li class="razon">
+                            <span class="insignia"><i class="fa-solid fa-gamepad" aria-hidden="true"></i></span>
+                            <div>
+                                <h3>El mando, por los videojuegos</h3>
+                                <p>Son mi gran afición: eFootball, Valorant o NBA 2K. Por eso cuento mi paso por el instituto como un "modo carrera".</p>
+                            </div>
+                        </li>
+                        <li class="razon">
+                            <span class="insignia"><i class="fa-solid fa-hand-pointer" aria-hidden="true"></i></span>
+                            <div>
+                                <h3>Un mando sirve para interactuar</h3>
+                                <p>Como desarrollador quiero crear interfaces fáciles de usar, que se manejen tan bien como un buen mando.</p>
+                            </div>
+                        </li>
+                        <li class="razon">
+                            <span class="insignia"><i class="fa-solid fa-pen-ruler" aria-hidden="true"></i></span>
+                            <div>
+                                <h3>Los mismos colores que la web</h3>
+                                <p>Azul cobalto de fondo y botones naranjas: el favicono y la web comparten identidad visual.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Muestra del favicono: la pestaña del navegador y los tamaños.
+                     En el HTML va después del texto (primero se lee el título) y en el ordenador
+                     la pongo a la izquierda con "order" en el CSS -->
+                <div class="favicono-muestra">
+                    <div class="pestana-barra">
+                        <p class="pestana"><img src="favicon/favicon-16.png" alt="" width="16" height="16"> Inicio | Mi instituto</p>
+                    </div>
+                    <img class="favicono-grande" src="favicon/favicon.svg" alt="Mi favicono en grande" width="140" height="140">
+                    <ul class="favicono-tamanos">
+                        <li><img src="favicon/favicon-16.png" alt="" width="16" height="16"> 16 px</li>
+                        <li><img src="favicon/favicon-32.png" alt="" width="32" height="32"> 32 px</li>
+                        <li><img src="favicon/favicon-64.png" alt="" width="64" height="64"> 64 px</li>
+                        <li class="tamano-movil"><img src="favicon/apple-touch-icon.png" alt="" width="90" height="90"> 180 px (móvil)</li>
+                    </ul>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ===================== POR QUÉ LO RECOMIENDO ===================== -->
+        <section class="seccion" id="por-que">
+            <div class="contenedor">
+                <div class="encabezado-seccion">
+                    <h2>Por qué lo recomiendo</h2>
+                    <p class="entradilla">Tres cosas que más valoro del Tetuán después de estos años:</p>
+                </div>
+                <div class="tarjetas-tres">
+                    <article class="tarjeta">
+                        <span class="insignia insignia-azul"><i class="fa-solid fa-computer" aria-hidden="true"></i></span>
+                        <h3>Se aprende practicando</h3>
+                        <p>Tiene 18 aulas de informática, un aula de redes y otra de montaje de equipos. Aquí casi todo se aprende haciendo.</p>
+                    </article>
+                    <article class="tarjeta">
+                        <span class="insignia insignia-naranja"><i class="fa-solid fa-earth-europe" aria-hidden="true"></i></span>
+                        <h3>Oportunidades fuera del aula</h3>
+                        <p>Erasmus+, AWS Academy, Cisco Networking Academy y empresas que colaboran con el centro para las prácticas.</p>
+                    </article>
+                    <article class="tarjeta">
+                        <span class="insignia insignia-tinta"><i class="fa-solid fa-landmark" aria-hidden="true"></i></span>
+                        <h3>Mucha historia</h3>
+                        <p>Abrió en 1933 y, según su propia historia, es el centro de FP en activo más antiguo de España.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===================== SIGUE EXPLORANDO ===================== -->
+        <section class="seccion seccion-blanca" id="sigue-explorando">
+            <div class="contenedor">
+                <div class="encabezado-seccion">
+                    <h2>Sigue explorando</h2>
+                </div>
+                <div class="accesos">
+                    <article class="acceso acceso-oscuro">
+                        <img src="img/entrada-instituto.jpg" alt="Entrada del IES Tetuán de las Victorias, con la valla cubierta de hiedra roja" width="907" height="599">
+                        <h3>El centro</h3>
+                        <p>Su historia, lo que se puede estudiar, las instalaciones y cómo llegar.</p>
+                        <a href="centro.html" class="boton boton-principal">Ver el centro</a>
+                    </article>
+                    <article class="acceso acceso-azul">
+                        <img src="img/aula-informatica.jpg" alt="Aula de informática del instituto con filas de ordenadores" width="1251" height="962">
+                        <h3>Mis estudios</h3>
+                        <p>Los módulos que he cursado, mis proyectos y lo que me llevo para trabajar.</p>
+                        <a href="estudios.html" class="boton boton-principal">Ver mis estudios</a>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ===================== PIE DE PÁGINA ===================== -->
+    <footer class="pie">
+        <div class="contenedor pie-contenido">
+            <a href="index.html" class="logo">
+                <img src="favicon/favicon.svg" alt="" width="40" height="40">
+                <span class="logo-texto">
+                    <span class="logo-nombre">Mi instituto</span>
+                    <span class="logo-centro">IES Tetuán de las Victorias</span>
+                </span>
+            </a>
+            <p class="pie-texto">Una web de Wenzel Addug sobre su experiencia como alumno del IES Tetuán de las Victorias.</p>
+
+            <nav aria-label="Menú del pie">
+                <ul class="pie-menu">
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="centro.html">El centro</a></li>
+                    <li><a href="estudios.html">Mis estudios</a></li>
+                </ul>
+            </nav>
+
+            <address class="pie-contacto">
+                <span><i class="fa-solid fa-location-dot" aria-hidden="true"></i> C/ Vía Límite, 14, 28029 Madrid</span>
+                <span><i class="fa-solid fa-phone" aria-hidden="true"></i> <a href="tel:+34913146706">91 314 67 06</a></span>
+                <span><i class="fa-solid fa-globe" aria-hidden="true"></i> <a href="https://www.iestetuan.es" target="_blank" rel="noopener">www.iestetuan.es</a></span>
+            </address>
+
+            <a href="#arriba" class="boton boton-oscuro"><i class="fa-solid fa-arrow-up" aria-hidden="true"></i> Volver arriba</a>
+
+            <p class="pie-legal">© 2026 Wenzel Addug. Proyecto de Diseño de Interfaces Web, 2º DAW.</p>
+            <p class="pie-creditos">Iconos: Font Awesome Free (CC BY 4.0). Favicono: diseño propio. Fotos del centro y logotipo del IES Tetuán de las Victorias. Mapa: Google Maps.</p>
+        </div>
+    </footer>
+
+</body>
+</html>

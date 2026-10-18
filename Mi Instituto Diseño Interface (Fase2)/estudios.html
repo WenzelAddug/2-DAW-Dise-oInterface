@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Mis estudios en el IES Tetuán de las Victorias: los módulos de SMR y DAW, mis proyectos y lo que me llevo.">
+    <meta name="author" content="Wenzel Addug">
+    <title>Mis estudios | Mi instituto</title>
+
+    <!-- Favicono: en la pestaña va la versión simple y en el móvil la completa -->
+    <link rel="icon" type="image/svg+xml" href="favicon/favicon-simple.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16.png">
+    <link rel="apple-touch-icon" href="favicon/apple-touch-icon.png">
+
+    <!-- Iconos de Font Awesome -->
+    <link rel="stylesheet" href="fontawesome/css/fontawesome.min.css">
+    <link rel="stylesheet" href="fontawesome/css/solid.min.css">
+
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+
+    <a href="#contenido" class="saltar">Saltar al contenido</a>
+
+    <!-- ===================== CABECERA ===================== -->
+    <header class="cabecera" id="arriba">
+        <div class="contenedor cabecera-contenido">
+            <a href="index.html" class="logo">
+                <img src="favicon/favicon.svg" alt="" width="40" height="40">
+                <span class="logo-texto">
+                    <span class="logo-nombre">Mi instituto</span>
+                    <span class="logo-centro">IES Tetuán de las Victorias</span>
+                </span>
+            </a>
+
+            <!-- Menú del móvil con checkbox (sin JavaScript) -->
+            <input type="checkbox" id="menu-movil" class="menu-check">
+            <label for="menu-movil" class="menu-boton">
+                <i class="fa-solid fa-bars icono-abrir" aria-hidden="true"></i>
+                <i class="fa-solid fa-xmark icono-cerrar" aria-hidden="true"></i>
+                <span class="oculto">Abrir o cerrar el menú</span>
+            </label>
+
+            <nav class="menu" aria-label="Menú principal">
+                <ul class="menu-lista">
+                    <li><a href="index.html">Inicio <i class="fa-solid fa-chevron-right" aria-hidden="true"></i></a></li>
+                    <li><a href="centro.html">El centro <i class="fa-solid fa-chevron-right" aria-hidden="true"></i></a></li>
+                    <li><a href="estudios.html" class="activo" aria-current="page">Mis estudios <i class="fa-solid fa-chevron-right" aria-hidden="true"></i></a></li>
+                </ul>
+                <div class="menu-datos">
+                    <p class="menu-datos-centro">IES Tetuán de las Victorias</p>
+                    <p>C/ Vía Límite, 14, 28029 Madrid</p>
+                    <p>91 314 67 06</p>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Migas de pan -->
+    <nav class="migas" aria-label="Migas de pan">
+        <div class="contenedor">
+            <ol>
+                <li><i class="fa-solid fa-house" aria-hidden="true"></i> <a href="index.html">Inicio</a></li>
+                <li><i class="fa-solid fa-chevron-right" aria-hidden="true"></i> <span aria-current="page">Mis estudios</span></li>
+            </ol>
+        </div>
+    </nav>
+
+    <main id="contenido">
+
+        <!-- ===================== PRESENTACIÓN ===================== -->
+        <section class="cabecera-pagina">
+            <div class="contenedor cabecera-pagina-contenido">
+                <div class="cabecera-pagina-texto">
+                    <h1>Mis estudios</h1>
+                    <p class="entradilla">De SMR a DAW: lo que he estudiado en el Tetuán, los proyectos que más me han gustado y lo que me llevo para mi vida profesional.</p>
+
+                    <!-- Mi recorrido en tres pasos -->
+                    <ol class="recorrido">
+                        <li><span class="etiqueta etiqueta-neutra">SMR (2022)</span></li>
+                        <li><i class="fa-solid fa-chevron-right" aria-hidden="true"></i> <span class="etiqueta etiqueta-neutra">1º DAW (2025-2026)</span></li>
+                        <li><i class="fa-solid fa-chevron-right" aria-hidden="true"></i> <span class="etiqueta etiqueta-naranja">2º DAW (ahora)</span></li>
+                    </ol>
+                </div>
+                <figure class="cabecera-pagina-imagen">
+                    <img src="img/aula-informatica.jpg" alt="Aula de informática del instituto con filas de ordenadores" width="1251" height="962">
+                </figure>
+            </div>
+        </section>
+
+        <!-- ===================== LOS MÓDULOS ===================== -->
+        <section class="seccion seccion-blanca" id="modulos">
+            <div class="contenedor">
+                <div class="encabezado-seccion">
+                    <h2>Los módulos</h2>
+                    <p class="entradilla">Lo que he estudiado en cada etapa y lo que más me ha aportado de cada módulo.</p>
+                </div>
+
+                <!-- Antes de DAW: el Grado Medio -->
+                <article class="etapa-smr">
+                    <span class="insignia insignia-azul"><i class="fa-solid fa-network-wired" aria-hidden="true"></i></span>
+                    <div>
+                        <div class="etapa-titulo">
+                            <h3>Antes: Grado Medio SMR (desde 2022)</h3>
+                            <span class="etiqueta etiqueta-neutra">Superado</span>
+                        </div>
+                        <p>Montaje y mantenimiento de equipos, redes locales, sistemas operativos, seguridad y servicios en red. Me dio la base de hardware y redes que ahora aprovecho en DAW.</p>
+                    </div>
+                </article>
+
+                <!-- 1º de DAW -->
+                <div class="curso-titulo">
+                    <h3>1º de DAW</h3>
+                    <span class="etiqueta etiqueta-azul">Superado</span>
+                    <span class="curso-anio">Curso 2025-2026</span>
+                </div>
+
+                <!-- GRID: 1 columna en el móvil, 2 en la tablet y 3 en el ordenador -->
+                <div class="modulos modulos-1">
+                    <article class="tarjeta modulo">
+                        <span class="insignia"><i class="fa-solid fa-code" aria-hidden="true"></i></span>
+                        <h4>Programación</h4>
+                        <p>Java: clases, ficheros, excepciones y estructuras de datos.</p>
+                    </article>
+                    <article class="tarjeta modulo">
+                        <span class="insignia"><i class="fa-solid fa-database" aria-hidden="true"></i></span>
+                        <h4>Bases de datos</h4>
+                        <p>Modelo entidad-relación, paso a tablas, normalización y SQL con MySQL.</p>
+                    </article>
+                    <article class="tarjeta modulo">
+                        <span class="insignia"><i class="fa-solid fa-file-code" aria-hidden="true"></i></span>
+                        <h4>Lenguajes de marcas</h4>
+                        <p>HTML, CSS y JavaScript: aquí hice mis primeras páginas web.</p>
+                    </article>
+                    <article class="tarjeta modulo">
+                        <span class="insignia"><i class="fa-solid fa-diagram-project" aria-hidden="true"></i></span>
+                        <h4>Entornos de desarrollo</h4>
+                        <p>Eclipse y diagramas UML de clases y de casos de uso.</p>
+                    </article>
+                    <article class="tarjeta modulo">
+                        <span class="insignia"><i class="fa-solid fa-server" aria-hidden="true"></i></span>
+                        <h4>Sistemas informáticos</h4>
+                        <p>Sistemas operativos, redes y computación en la nube con AWS.</p>
+                    </article>
+                    <article class="tarjeta modulo">
+                        <span class="insignia"><i class="fa-solid fa-briefcase" aria-hidden="true"></i></span>
+                        <h4>Itinerario para la empleabilidad I</h4>
+                        <p>Orientación laboral y cómo funciona el mundo del trabajo.</p>
+                    </article>
+                </div>
+
+                <!-- 2º de DAW -->
+                <div class="curso-titulo">
+                    <h3>2º de DAW</h3>
+                    <span class="etiqueta etiqueta-naranja">En curso</span>
+                    <span class="curso-anio">Curso 2026-2027</span>
+                </div>
+
+                <!-- GRID: 4 columnas en el ordenador. El módulo de DIW ocupa 2 (span 2) -->
+                <div class="modulos modulos-2">
+                    <article class="tarjeta modulo modulo--destacado">
+                        <span class="insignia insignia-naranja"><i class="fa-solid fa-pen-ruler" aria-hidden="true"></i></span>
+                        <div>
+                            <span class="etiqueta etiqueta-naranja">El módulo de esta web</span>
+                            <h4>Diseño de interfaces web</h4>
+                            <p>Color, tipografía, composición y prototipos en Figma, como el de esta web.</p>
+                        </div>
+                    </article>
+                    <article class="tarjeta modulo">
+                        <span class="insignia"><i class="fa-solid fa-laptop-code" aria-hidden="true"></i></span>
+                        <h4>Desarrollo web en entorno cliente</h4>
+                        <p>JavaScript para dar vida a las páginas en el navegador.</p>
+                    </article>
+                    <article class="tarjeta modulo">
+                        <span class="insignia"><i class="fa-solid fa-gears" aria-hidden="true"></i></span>
+                        <h4>Desarrollo web en entorno servidor</h4>
+                        <p>Programación del lado del servidor con PHP y Java.</p>
+                    </article>
+                    <article class="tarjeta modulo">
+                        <span class="insignia"><i class="fa-solid fa-cloud-arrow-up" aria-hidden="true"></i></span>
+                        <h4>Despliegue de aplicaciones web</h4>
+                        <p>Servidores web y cómo publicar una aplicación en internet.</p>
+                    </article>
+                    <article class="tarjeta modulo">
+                        <span class="insignia"><i class="fa-solid fa-language" aria-hidden="true"></i></span>
+                        <h4>Inglés profesional</h4>
+                        <p>Inglés técnico para trabajar en informática.</p>
+                    </article>
+                    <article class="tarjeta modulo">
+                        <span class="insignia"><i class="fa-solid fa-users" aria-hidden="true"></i></span>
+                        <h4>Empleabilidad, digitalización y sostenibilidad</h4>
+                        <p>IPE II, Digitalización y Sostenibilidad aplicadas al sector.</p>
+                    </article>
+                    <article class="tarjeta modulo">
+                        <span class="insignia"><i class="fa-solid fa-sitemap" aria-hidden="true"></i></span>
+                        <h4>Proyecto intermodular y FFE</h4>
+                        <p>El proyecto final del ciclo y las prácticas en empresa.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===================== MIS PROYECTOS ===================== -->
+        <section class="seccion" id="proyectos">
+            <div class="contenedor">
+                <div class="encabezado-seccion">
+                    <h2>Mis proyectos</h2>
+                    <p class="entradilla">Algunas cosas que he hecho en clase. Cada una me enseñó algo nuevo.</p>
+                </div>
+
+                <!-- GRID con grid-template-areas (las áreas están en el CSS) -->
+                <div class="proyectos">
+
+                    <article class="proyecto proyecto--destacado">
+                        <!-- Captura de esta web dentro de un navegador dibujado con CSS -->
+                        <div class="navegador">
+                            <div class="navegador-barra" aria-hidden="true">
+                                <span class="punto"></span>
+                                <span class="punto"></span>
+                                <span class="punto"></span>
+                                <p class="navegador-url">mi-instituto/index.html</p>
+                            </div>
+                            <img src="img/captura-inicio.jpg" alt="Captura de la página de inicio de esta web" width="1200" height="695">
+                        </div>
+                        <ul class="tecnologias">
+                            <li class="etiqueta etiqueta-cobalto">Figma</li>
+                            <li class="etiqueta etiqueta-cobalto">HTML5</li>
+                            <li class="etiqueta etiqueta-cobalto">CSS3</li>
+                        </ul>
+                        <h3>Esta web: Mi instituto</h3>
+                        <p>Primero el prototipo en Figma (fase 1) y después la web con HTML5 y CSS3, usando Flexbox y Grid (fase 2).</p>
+                    </article>
+
+                    <article class="tarjeta proyecto proyecto-halloween">
+                        <span class="insignia"><i class="fa-solid fa-ghost" aria-hidden="true"></i></span>
+                        <div>
+                            <h3>Web de Halloween</h3>
+                            <p>Un sitio de varias páginas hecho con HTML y CSS.</p>
+                            <ul class="tecnologias">
+                                <li class="etiqueta etiqueta-neutra">HTML</li>
+                                <li class="etiqueta etiqueta-neutra">CSS</li>
+                            </ul>
+                        </div>
+                    </article>
+
+                    <article class="tarjeta proyecto proyecto-padel">
+                        <span class="insignia"><i class="fa-solid fa-table-tennis-paddle-ball" aria-hidden="true"></i></span>
+                        <div>
+                            <h3>Pádel en Madrid</h3>
+                            <p>Una página web con una hoja de estilos externa.</p>
+                            <ul class="tecnologias">
+                                <li class="etiqueta etiqueta-neutra">HTML</li>
+                                <li class="etiqueta etiqueta-neutra">CSS</li>
+                            </ul>
+                        </div>
+                    </article>
+
+                    <article class="tarjeta proyecto proyecto-netflix">
+                        <span class="insignia"><i class="fa-solid fa-film" aria-hidden="true"></i></span>
+                        <div>
+                            <h3>Clon de Netflix</h3>
+                            <p>Copia de su interfaz para practicar la maquetación.</p>
+                            <ul class="tecnologias">
+                                <li class="etiqueta etiqueta-neutra">HTML</li>
+                                <li class="etiqueta etiqueta-neutra">CSS</li>
+                            </ul>
+                        </div>
+                    </article>
+
+                    <article class="tarjeta proyecto proyecto-particulas">
+                        <span class="insignia"><i class="fa-solid fa-wand-magic-sparkles" aria-hidden="true"></i></span>
+                        <div>
+                            <h3>Partículas animadas</h3>
+                            <p>Página inspirada en la web de Lusion, con una animación de partículas.</p>
+                            <ul class="tecnologias">
+                                <li class="etiqueta etiqueta-neutra">JavaScript</li>
+                            </ul>
+                        </div>
+                    </article>
+
+                    <article class="tarjeta proyecto proyecto-calculadora">
+                        <span class="insignia"><i class="fa-solid fa-calculator" aria-hidden="true"></i></span>
+                        <div>
+                            <h3>Calculadora en JavaScript</h3>
+                            <p>Una calculadora que funciona de verdad. Además la presenté en clase explicando el código.</p>
+                            <ul class="tecnologias">
+                                <li class="etiqueta etiqueta-neutra">HTML</li>
+                                <li class="etiqueta etiqueta-neutra">JavaScript</li>
+                            </ul>
+                        </div>
+                    </article>
+
+                    <article class="tarjeta proyecto proyecto-uml">
+                        <span class="insignia"><i class="fa-solid fa-sitemap" aria-hidden="true"></i></span>
+                        <div>
+                            <h3>Clínica veterinaria en UML</h3>
+                            <p>Diagrama de clases y de casos de uso para el sistema de gestión de una clínica.</p>
+                            <ul class="tecnologias">
+                                <li class="etiqueta etiqueta-neutra">UML</li>
+                            </ul>
+                        </div>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ===================== LO QUE ME LLEVO ===================== -->
+        <section class="seccion seccion-blanca" id="lo-que-me-llevo">
+            <div class="contenedor">
+                <div class="encabezado-seccion">
+                    <h2>Lo que me llevo</h2>
+                    <p class="entradilla">Lo que he aprendido y cómo me va a servir cuando trabaje:</p>
+                </div>
+
+                <!-- GRID de 2 x 2 en escritorio -->
+                <ul class="aprendizajes">
+                    <li class="aprendizaje">
+                        <span class="insignia insignia-azul"><i class="fa-solid fa-laptop-code" aria-hidden="true"></i></span>
+                        <div>
+                            <h3>Programar de verdad</h3>
+                            <p>Sé hacer webs con HTML, CSS y JavaScript y programas en Java. Es la base de cualquier puesto de desarrollador.</p>
+                        </div>
+                    </li>
+                    <li class="aprendizaje">
+                        <span class="insignia insignia-azul"><i class="fa-solid fa-database" aria-hidden="true"></i></span>
+                        <div>
+                            <h3>Trabajar con datos</h3>
+                            <p>Diseñar una base de datos y consultarla con SQL es algo que piden en casi todas las empresas.</p>
+                        </div>
+                    </li>
+                    <li class="aprendizaje">
+                        <span class="insignia insignia-azul"><i class="fa-solid fa-pen-ruler" aria-hidden="true"></i></span>
+                        <div>
+                            <h3>Planificar antes de programar</h3>
+                            <p>Con Figma aprendo a pensar primero en el diseño, como se hace en los equipos de verdad.</p>
+                        </div>
+                    </li>
+                    <li class="aprendizaje">
+                        <span class="insignia insignia-azul"><i class="fa-solid fa-users" aria-hidden="true"></i></span>
+                        <div>
+                            <h3>Trabajar en equipo</h3>
+                            <p>Hago muchas tareas en pareja y la documentación técnica suele estar en inglés. Eso me servirá en las prácticas.</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- ===================== SIGUIENTE NIVEL ===================== -->
+        <section class="seccion" id="siguiente-nivel">
+            <div class="contenedor">
+                <div class="llamada">
+                    <div class="llamada-texto">
+                        <span class="etiqueta etiqueta-naranja">Siguiente nivel</span>
+                        <h2>FFE y Erasmus+</h2>
+                        <p>En 2027 haré las prácticas en una empresa y he pedido hacerlas en Alemania con el Erasmus+ del centro. Después, mi objetivo es trabajar como desarrollador web.</p>
+                    </div>
+                    <div class="botones">
+                        <a href="index.html" class="boton boton-principal">Volver al inicio</a>
+                        <a href="centro.html" class="boton boton-oscuro">Conoce el centro</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ===================== PIE DE PÁGINA ===================== -->
+    <footer class="pie">
+        <div class="contenedor pie-contenido">
+            <a href="index.html" class="logo">
+                <img src="favicon/favicon.svg" alt="" width="40" height="40">
+                <span class="logo-texto">
+                    <span class="logo-nombre">Mi instituto</span>
+                    <span class="logo-centro">IES Tetuán de las Victorias</span>
+                </span>
+            </a>
+            <p class="pie-texto">Una web de Wenzel Addug sobre su experiencia como alumno del IES Tetuán de las Victorias.</p>
+
+            <nav aria-label="Menú del pie">
+                <ul class="pie-menu">
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="centro.html">El centro</a></li>
+                    <li><a href="estudios.html">Mis estudios</a></li>
+                </ul>
+            </nav>
+
+            <address class="pie-contacto">
+                <span><i class="fa-solid fa-location-dot" aria-hidden="true"></i> C/ Vía Límite, 14, 28029 Madrid</span>
+                <span><i class="fa-solid fa-phone" aria-hidden="true"></i> <a href="tel:+34913146706">91 314 67 06</a></span>
+                <span><i class="fa-solid fa-globe" aria-hidden="true"></i> <a href="https://www.iestetuan.es" target="_blank" rel="noopener">www.iestetuan.es</a></span>
+            </address>
+
+            <a href="#arriba" class="boton boton-oscuro"><i class="fa-solid fa-arrow-up" aria-hidden="true"></i> Volver arriba</a>
+
+            <p class="pie-legal">© 2026 Wenzel Addug. Proyecto de Diseño de Interfaces Web, 2º DAW.</p>
+            <p class="pie-creditos">Iconos: Font Awesome Free (CC BY 4.0). Favicono: diseño propio. Fotos del centro y logotipo del IES Tetuán de las Victorias. Mapa: Google Maps.</p>
+        </div>
+    </footer>
+
+</body>
+</html>

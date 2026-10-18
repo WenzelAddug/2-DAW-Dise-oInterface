@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="El IES Tetuán de las Victorias: historia, estudios, instalaciones, servicios y cómo llegar.">
+    <meta name="author" content="Wenzel Addug">
+    <title>El centro | Mi instituto</title>
+
+    <!-- Favicono: en la pestaña va la versión simple y en el móvil la completa -->
+    <link rel="icon" type="image/svg+xml" href="favicon/favicon-simple.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16.png">
+    <link rel="apple-touch-icon" href="favicon/apple-touch-icon.png">
+
+    <!-- Iconos de Font Awesome -->
+    <link rel="stylesheet" href="fontawesome/css/fontawesome.min.css">
+    <link rel="stylesheet" href="fontawesome/css/solid.min.css">
+
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+
+    <a href="#contenido" class="saltar">Saltar al contenido</a>
+
+    <!-- ===================== CABECERA ===================== -->
+    <header class="cabecera" id="arriba">
+        <div class="contenedor cabecera-contenido">
+            <a href="index.html" class="logo">
+                <img src="favicon/favicon.svg" alt="" width="40" height="40">
+                <span class="logo-texto">
+                    <span class="logo-nombre">Mi instituto</span>
+                    <span class="logo-centro">IES Tetuán de las Victorias</span>
+                </span>
+            </a>
+
+            <!-- Menú del móvil con checkbox (sin JavaScript) -->
+            <input type="checkbox" id="menu-movil" class="menu-check">
+            <label for="menu-movil" class="menu-boton">
+                <i class="fa-solid fa-bars icono-abrir" aria-hidden="true"></i>
+                <i class="fa-solid fa-xmark icono-cerrar" aria-hidden="true"></i>
+                <span class="oculto">Abrir o cerrar el menú</span>
+            </label>
+
+            <nav class="menu" aria-label="Menú principal">
+                <ul class="menu-lista">
+                    <li><a href="index.html">Inicio <i class="fa-solid fa-chevron-right" aria-hidden="true"></i></a></li>
+                    <li><a href="centro.html" class="activo" aria-current="page">El centro <i class="fa-solid fa-chevron-right" aria-hidden="true"></i></a></li>
+                    <li><a href="estudios.html">Mis estudios <i class="fa-solid fa-chevron-right" aria-hidden="true"></i></a></li>
+                </ul>
+                <div class="menu-datos">
+                    <p class="menu-datos-centro">IES Tetuán de las Victorias</p>
+                    <p>C/ Vía Límite, 14, 28029 Madrid</p>
+                    <p>91 314 67 06</p>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Migas de pan -->
+    <nav class="migas" aria-label="Migas de pan">
+        <div class="contenedor">
+            <ol>
+                <li><i class="fa-solid fa-house" aria-hidden="true"></i> <a href="index.html">Inicio</a></li>
+                <li><i class="fa-solid fa-chevron-right" aria-hidden="true"></i> <span aria-current="page">El centro</span></li>
+            </ol>
+        </div>
+    </nav>
+
+    <main id="contenido">
+
+        <!-- ===================== PRESENTACIÓN DEL CENTRO ===================== -->
+        <section class="cabecera-pagina">
+            <div class="contenedor cabecera-pagina-contenido">
+                <div class="cabecera-pagina-texto">
+                    <h1>El centro</h1>
+                    <p class="entradilla">El IES Tetuán de las Victorias es un instituto público de Formación Profesional del distrito de Tetuán, en el norte de Madrid. Está especializado en Informática, Administración y Turismo.</p>
+
+                    <!-- FLEXBOX: los tres datos rápidos (en el móvil en columna y en pantallas más grandes en fila) -->
+                    <ul class="datos-rapidos">
+                        <li><strong>1933</strong> año en que se fundó</li>
+                        <li><strong>3</strong> familias profesionales</li>
+                        <li><strong>18</strong> aulas de informática</li>
+                    </ul>
+                </div>
+                <figure class="cabecera-pagina-imagen">
+                    <img src="img/entrada-instituto.jpg" alt="Entrada del IES Tetuán de las Victorias, con la valla cubierta de hiedra roja y los carteles de FP y Erasmus+" width="907" height="599">
+                </figure>
+            </div>
+        </section>
+
+        <!-- ===================== UN POCO DE HISTORIA ===================== -->
+        <section class="seccion seccion-blanca" id="historia">
+            <div class="contenedor">
+                <div class="encabezado-seccion">
+                    <h2>Un poco de historia</h2>
+                    <p class="entradilla">Según la historia que publica el propio instituto, es el centro de Formación Profesional en activo más antiguo de España.</p>
+                </div>
+
+                <!-- FLEXBOX: los hitos van en una fila (en móvil, uno debajo de otro) -->
+                <ol class="hitos">
+                    <li class="hito">
+                        <p class="hito-anio">1933</p>
+                        <p>Abre como Escuela de Orientación Profesional y Aprendizaje Chamartín de la Rosa, con talleres de ajuste, carpintería y forja.</p>
+                    </li>
+                    <li class="hito">
+                        <p class="hito-anio">1954</p>
+                        <p>Pasa a llamarse Tetuán de las Victorias, como el barrio en el que nació.</p>
+                    </li>
+                    <li class="hito">
+                        <p class="hito-anio">1985</p>
+                        <p>Empiezan los estudios de Informática. Administración ya se impartía desde 1977.</p>
+                    </li>
+                    <li class="hito">
+                        <p class="hito-anio">2001</p>
+                        <p>Termina el traslado al edificio actual de la calle Vía Límite, que empezó en 1998.</p>
+                    </li>
+                    <li class="hito hito-hoy">
+                        <p class="hito-anio">Hoy</p>
+                        <p>FP de Informática, Administración y Turismo (desde 2004), de FP Básica a Grado Superior.</p>
+                    </li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- ===================== QUÉ SE PUEDE ESTUDIAR ===================== -->
+        <section class="seccion" id="estudios">
+            <div class="contenedor">
+                <div class="encabezado-seccion">
+                    <h2>Qué se puede estudiar</h2>
+                    <p class="entradilla">Todo es Formación Profesional y está organizado en tres familias profesionales:</p>
+                </div>
+
+                <!-- FLEXBOX: las tres familias en fila (en el móvil una debajo de otra) -->
+                <div class="familias">
+                    <article class="tarjeta familia familia-mia">
+                        <div class="familia-cabecera">
+                            <span class="insignia insignia-naranja"><i class="fa-solid fa-laptop-code" aria-hidden="true"></i></span>
+                            <span class="etiqueta etiqueta-naranja">Mi familia profesional</span>
+                        </div>
+                        <h3>Informática y Comunicaciones</h3>
+                        <dl class="familia-ciclos">
+                            <dt><span class="etiqueta etiqueta-neutra">FP Básica</span></dt>
+                            <dd>Informática de Oficina</dd>
+                            <dt><span class="etiqueta etiqueta-neutra">Grado Medio</span></dt>
+                            <dd>Sistemas Microinformáticos y Redes (SMR)</dd>
+                            <dt><span class="etiqueta etiqueta-azul">Grado Superior</span></dt>
+                            <dd>Administración de Sistemas Informáticos en Red (ASIR), Desarrollo de Aplicaciones Web (DAW) y Desarrollo de Aplicaciones Multiplataforma (DAM)</dd>
+                        </dl>
+                    </article>
+                    <article class="tarjeta familia">
+                        <div class="familia-cabecera">
+                            <span class="insignia"><i class="fa-solid fa-briefcase" aria-hidden="true"></i></span>
+                        </div>
+                        <h3>Administración y Gestión</h3>
+                        <dl class="familia-ciclos">
+                            <dt><span class="etiqueta etiqueta-neutra">Grado Medio</span></dt>
+                            <dd>Gestión Administrativa</dd>
+                            <dt><span class="etiqueta etiqueta-azul">Grado Superior</span></dt>
+                            <dd>Administración y Finanzas</dd>
+                        </dl>
+                    </article>
+                    <article class="tarjeta familia">
+                        <div class="familia-cabecera">
+                            <span class="insignia"><i class="fa-solid fa-plane" aria-hidden="true"></i></span>
+                        </div>
+                        <h3>Hostelería y Turismo</h3>
+                        <dl class="familia-ciclos">
+                            <!-- Los dos son de Grado Superior, así que van con el mismo dt -->
+                            <dt><span class="etiqueta etiqueta-azul">Grado Superior</span></dt>
+                            <dd>Agencias de Viajes y Gestión de Eventos</dd>
+                            <dd>Guía, Información y Asistencia Turísticas</dd>
+                        </dl>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===================== INSTALACIONES ===================== -->
+        <section class="seccion seccion-blanca" id="instalaciones">
+            <div class="contenedor">
+                <div class="encabezado-seccion">
+                    <h2>Instalaciones</h2>
+                    <p class="entradilla">Un edificio pensado para practicar. Esto es lo que tiene:</p>
+                </div>
+
+                <!-- FLEXBOX con flex-wrap: según el ancho de la pantalla salen 4, 3, 2 o 1 tarjetas por fila -->
+                <div class="instalaciones">
+                    <article class="tarjeta">
+                        <span class="insignia"><i class="fa-solid fa-wifi" aria-hidden="true"></i></span>
+                        <h3>Wi-Fi en todo el centro</h3>
+                        <p>Conexión en las aulas, en la biblioteca y en las zonas comunes.</p>
+                    </article>
+                    <article class="tarjeta">
+                        <span class="insignia"><i class="fa-solid fa-computer" aria-hidden="true"></i></span>
+                        <h3>18 aulas de informática</h3>
+                        <p>Con, como mínimo, un ordenador por cada dos alumnos.</p>
+                    </article>
+                    <article class="tarjeta">
+                        <span class="insignia"><i class="fa-solid fa-network-wired" aria-hidden="true"></i></span>
+                        <h3>Aula de redes</h3>
+                        <p>Para montar y reparar las instalaciones de red de los equipos.</p>
+                    </article>
+                    <article class="tarjeta">
+                        <span class="insignia"><i class="fa-solid fa-screwdriver-wrench" aria-hidden="true"></i></span>
+                        <h3>Aula de mantenimiento</h3>
+                        <p>Para montar, desmontar y reparar ordenadores.</p>
+                    </article>
+                    <article class="tarjeta">
+                        <span class="insignia"><i class="fa-solid fa-book" aria-hidden="true"></i></span>
+                        <h3>Biblioteca</h3>
+                        <p>En la planta baja, con préstamo de libros y ordenadores con internet.</p>
+                    </article>
+                    <article class="tarjeta">
+                        <span class="insignia"><i class="fa-solid fa-microphone" aria-hidden="true"></i></span>
+                        <h3>Salón de actos</h3>
+                        <p>Y la sala multiusos "Ada Byron Lovelace", para charlas, eventos y exámenes.</p>
+                    </article>
+                    <article class="tarjeta">
+                        <span class="insignia"><i class="fa-solid fa-futbol" aria-hidden="true"></i></span>
+                        <h3>Pistas deportivas</h3>
+                        <p>Para jugar al fútbol y al baloncesto.</p>
+                    </article>
+                    <article class="tarjeta">
+                        <span class="insignia"><i class="fa-solid fa-laptop" aria-hidden="true"></i></span>
+                        <h3>Préstamo de portátiles</h3>
+                        <p>Portátiles que se prestan a los alumnos o se usan en clase.</p>
+                    </article>
+                    <article class="tarjeta">
+                        <span class="insignia"><i class="fa-solid fa-lightbulb" aria-hidden="true"></i></span>
+                        <h3>Aula de emprendimiento</h3>
+                        <p>Espacio y ayuda para quien quiere crear su propia empresa.</p>
+                    </article>
+                    <article class="tarjeta">
+                        <span class="insignia"><i class="fa-solid fa-print" aria-hidden="true"></i></span>
+                        <h3>Reprografía</h3>
+                        <p>Fotocopias, impresión y plastificado en la planta baja.</p>
+                    </article>
+                    <article class="tarjeta">
+                        <span class="insignia"><i class="fa-solid fa-bicycle" aria-hidden="true"></i></span>
+                        <h3>Aparcamiento</h3>
+                        <p>Para coches, motos, patinetes y bicis dentro del recinto.</p>
+                    </article>
+                    <article class="tarjeta">
+                        <span class="insignia"><i class="fa-solid fa-tree" aria-hidden="true"></i></span>
+                        <h3>Jardín</h3>
+                        <p>Una zona verde para desconectar entre clase y clase.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===================== MÁS ALLÁ DE LAS CLASES ===================== -->
+        <section class="seccion seccion-azul" id="mas-alla">
+            <div class="contenedor">
+                <div class="encabezado-seccion">
+                    <h2>Más allá de las clases</h2>
+                    <p class="entradilla">Proyectos y servicios del centro que ayudan a dar el salto al mundo laboral:</p>
+                </div>
+
+                <!-- FLEXBOX: los servicios en fila (con flex-wrap en pantallas pequeñas) -->
+                <div class="servicios">
+                    <article class="tarjeta">
+                        <span class="insignia insignia-naranja"><i class="fa-solid fa-earth-europe" aria-hidden="true"></i></span>
+                        <h3>Erasmus+</h3>
+                        <p>El centro tiene la acreditación Erasmus+ de FP: se pueden hacer las prácticas en otro país de Europa.</p>
+                    </article>
+                    <article class="tarjeta">
+                        <span class="insignia insignia-naranja"><i class="fa-solid fa-handshake" aria-hidden="true"></i></span>
+                        <h3>Prácticas en empresas</h3>
+                        <p>Empresas como Accenture o Indra colaboran con el centro. También hay bolsa de empleo.</p>
+                    </article>
+                    <article class="tarjeta">
+                        <span class="insignia insignia-naranja"><i class="fa-solid fa-cloud" aria-hidden="true"></i></span>
+                        <h3>Academias oficiales</h3>
+                        <p>AWS Academy, Cisco Networking Academy y Microsoft IT Academy.</p>
+                    </article>
+                    <article class="tarjeta">
+                        <span class="insignia insignia-naranja"><i class="fa-solid fa-chalkboard-user" aria-hidden="true"></i></span>
+                        <h3>Aula virtual</h3>
+                        <p>Cada módulo tiene su curso en Moodle, con los apuntes y las tareas.</p>
+                    </article>
+                </div>
+
+                <!-- FLEXBOX con flex-wrap para las etiquetas -->
+                <div class="otros-proyectos">
+                    <p>Otros proyectos:</p>
+                    <ul>
+                        <li class="etiqueta etiqueta-oscura">Proyecto Coach</li>
+                        <li class="etiqueta etiqueta-oscura">Objetivo empleo (Fundación KPMG)</li>
+                        <li class="etiqueta etiqueta-oscura">Miniempresas (Junior Achievement)</li>
+                        <li class="etiqueta etiqueta-oscura">Hermanado con un liceo de Burdeos</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===================== DÓNDE ESTÁ ===================== -->
+        <section class="seccion" id="donde-esta">
+            <div class="contenedor">
+                <div class="encabezado-seccion">
+                    <h2>Dónde está</h2>
+                </div>
+
+                <!-- FLEXBOX: el mapa a la izquierda y los datos a la derecha -->
+                <div class="ubicacion">
+                    <figure class="ubicacion-mapa">
+                        <img src="img/mapa-ventilla.jpg" alt="Mapa de satélite del entorno del instituto con la ruta a pie hasta el metro de Ventilla" width="1328" height="996">
+                        <figcaption>Vista de satélite de Google Maps. La ruta es orientativa.</figcaption>
+                    </figure>
+
+                    <div class="ubicacion-datos">
+                        <div class="centro-nombre">
+                            <img src="img/logo-ies-tetuan.png" alt="Logotipo del IES Tetuán de las Victorias" width="100" height="56">
+                            <h3>IES Tetuán de las Victorias</h3>
+                        </div>
+                        <address>
+                            <ul class="lista-contacto">
+                                <li><i class="fa-solid fa-location-dot" aria-hidden="true"></i> C/ Vía Límite, 14, 28029 Madrid (distrito de Tetuán)</li>
+                                <li><i class="fa-solid fa-train-subway" aria-hidden="true"></i> Metro Ventilla (línea 9), a unos 5 minutos andando</li>
+                                <li><i class="fa-solid fa-train-subway" aria-hidden="true"></i> Plaza de Castilla (líneas 1, 9 y 10), a unos 15 minutos andando</li>
+                                <li><i class="fa-solid fa-phone" aria-hidden="true"></i> <a href="tel:+34913146706">91 314 67 06</a></li>
+                                <li><i class="fa-solid fa-globe" aria-hidden="true"></i> <a href="https://www.iestetuan.es" target="_blank" rel="noopener">www.iestetuan.es</a></li>
+                            </ul>
+                        </address>
+                        <div class="tarjeta entorno">
+                            <h3>El entorno</h3>
+                            <p>Está en el norte de Madrid, muy cerca de la zona de negocios de los cinco rascacielos más altos de la ciudad. Es una zona muy bien comunicada y con mucho movimiento.</p>
+                        </div>
+                        <a href="https://www.google.com/maps/search/?api=1&amp;query=IES+Tet%C3%BAan+de+las+Victorias+V%C3%ADa+L%C3%ADmite+14+Madrid" class="boton boton-secundario" target="_blank" rel="noopener"><i class="fa-solid fa-map-location-dot" aria-hidden="true"></i> Cómo llegar</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ===================== PIE DE PÁGINA ===================== -->
+    <footer class="pie">
+        <div class="contenedor pie-contenido">
+            <a href="index.html" class="logo">
+                <img src="favicon/favicon.svg" alt="" width="40" height="40">
+                <span class="logo-texto">
+                    <span class="logo-nombre">Mi instituto</span>
+                    <span class="logo-centro">IES Tetuán de las Victorias</span>
+                </span>
+            </a>
+            <p class="pie-texto">Una web de Wenzel Addug sobre su experiencia como alumno del IES Tetuán de las Victorias.</p>
+
+            <nav aria-label="Menú del pie">
+                <ul class="pie-menu">
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="centro.html">El centro</a></li>
+                    <li><a href="estudios.html">Mis estudios</a></li>
+                </ul>
+            </nav>
+
+            <address class="pie-contacto">
+                <span><i class="fa-solid fa-location-dot" aria-hidden="true"></i> C/ Vía Límite, 14, 28029 Madrid</span>
+                <span><i class="fa-solid fa-phone" aria-hidden="true"></i> <a href="tel:+34913146706">91 314 67 06</a></span>
+                <span><i class="fa-solid fa-globe" aria-hidden="true"></i> <a href="https://www.iestetuan.es" target="_blank" rel="noopener">www.iestetuan.es</a></span>
+            </address>
+
+            <a href="#arriba" class="boton boton-oscuro"><i class="fa-solid fa-arrow-up" aria-hidden="true"></i> Volver arriba</a>
+
+            <p class="pie-legal">© 2026 Wenzel Addug. Proyecto de Diseño de Interfaces Web, 2º DAW.</p>
+            <p class="pie-creditos">Iconos: Font Awesome Free (CC BY 4.0). Favicono: diseño propio. Fotos del centro y logotipo del IES Tetuán de las Victorias. Mapa: Google Maps.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
