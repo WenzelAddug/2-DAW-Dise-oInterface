@@ -26,7 +26,7 @@ Para verla solo hay que abrir `index.html` en el navegador.
 - HTML5 con etiquetas semánticas (header, nav, main, section, article, aside, figure, footer).
 - CSS3: variables, Flexbox, Grid (con grid-template-areas), media queries mobile first (576, 768, 992 y 1200 px), transiciones y animaciones sencillas.
 - Menú hamburguesa para el móvil hecho solo con CSS (con un checkbox).
-- Accesibilidad: textos alternativos, foco visible con el teclado, enlace para saltar al contenido y animaciones desactivadas si el usuario lo pide en su sistema.
+- Accesibilidad: textos alternativos, foco visible con el teclado y enlace para saltar al contenido.
 
 ## Créditos
 

@@ -1,73 +1,14 @@
-/*
-    Proyecto "Mi instituto" - Fase 2
-    Autor: Wenzel Addug (2º DAW, IES Tetuán de las Victorias)
+/* Hoja de estilos de "Mi instituto" (fase 2) - Wenzel Addug, 2º DAW
+   Mobile first: primero el móvil y al final las media queries (576, 768, 992 y 1200px) */
 
-    Hoja de estilos de las tres páginas (index, centro y estudios).
-    Está hecha "mobile first": primero los estilos del móvil y al final
-    las media queries con min-width (576, 768, 992 y 1200 px), que son los
-    puntos de rotura que puse en el diseño de Figma.
+/* ---------- FUENTES ---------- */
+@font-face { font-family: "Big Shoulders Display"; src: url("../fonts/big-shoulders-display-700.woff2"); font-weight: 700; }
+@font-face { font-family: "Big Shoulders Display"; src: url("../fonts/big-shoulders-display-800.woff2"); font-weight: 800; }
+@font-face { font-family: "Big Shoulders Display"; src: url("../fonts/big-shoulders-display-900.woff2"); font-weight: 900; }
+@font-face { font-family: "Atkinson Hyperlegible"; src: url("../fonts/atkinson-hyperlegible-400.woff2"); font-weight: 400; }
+@font-face { font-family: "Atkinson Hyperlegible"; src: url("../fonts/atkinson-hyperlegible-700.woff2"); font-weight: 700; }
 
-    Índice:
-     1. Fuentes
-     2. Variables
-     3. Estilos generales
-     4. Textos
-     5. Botones, etiquetas e insignias
-     6. Tarjetas
-     7. Cabecera y menú
-     8. Migas de pan
-     9. Secciones
-    10. Inicio
-    11. El centro (Flexbox)
-    12. Mis estudios (Grid)
-    13. Pie de página
-    14. Animaciones
-    15. Media queries
-*/
-
-
-/* ---------- 1. FUENTES ---------- */
-/* Las fuentes están descargadas en la carpeta fonts (así funcionan sin internet) */
-
-@font-face {
-    font-family: "Big Shoulders Display";
-    src: url("../fonts/big-shoulders-display-700.woff2") format("woff2");
-    font-weight: 700;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: "Big Shoulders Display";
-    src: url("../fonts/big-shoulders-display-800.woff2") format("woff2");
-    font-weight: 800;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: "Big Shoulders Display";
-    src: url("../fonts/big-shoulders-display-900.woff2") format("woff2");
-    font-weight: 900;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: "Atkinson Hyperlegible";
-    src: url("../fonts/atkinson-hyperlegible-400.woff2") format("woff2");
-    font-weight: 400;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: "Atkinson Hyperlegible";
-    src: url("../fonts/atkinson-hyperlegible-700.woff2") format("woff2");
-    font-weight: 700;
-    font-display: swap;
-}
-
-
-/* ---------- 2. VARIABLES ---------- */
-/* Los mismos colores que guardé como variables en Figma */
-
+/* ---------- COLORES (los mismos que en Figma) ---------- */
 :root {
     --color-tinta: #0E1433;
     --color-cobalto: #1F4FE0;
@@ -80,177 +21,68 @@
     --color-blanco: #FFFFFF;
     --color-texto-secundario: #4A5578;
     --color-borde: #D9DFEE;
-
-    --fuente-titulos: "Big Shoulders Display", Impact, sans-serif;
-    --fuente-texto: "Atkinson Hyperlegible", Arial, sans-serif;
-
-    /* Tamaños de texto del móvil (en la media query de 992px se cambian por los del ordenador) */
-    --texto-display: 3.75rem;     /* 60px */
-    --texto-h1: 3rem;             /* 48px */
-    --texto-h2: 2.25rem;          /* 36px */
-    --texto-h3: 1.75rem;          /* 28px */
-    --texto-h4: 1.375rem;         /* 22px */
-    --texto-entradilla: 1.125rem; /* 18px */
-    --texto-cuerpo: 1rem;         /* 16px */
-    --texto-pequeno: 0.875rem;    /* 14px */
 }
 
-
-/* ---------- 3. ESTILOS GENERALES ---------- */
-
-* {
-    box-sizing: border-box;
-}
-
-/* Al pulsar "Volver arriba" la página sube poco a poco */
-html {
-    scroll-behavior: smooth;
-}
+/* ---------- GENERAL ---------- */
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
 
 body {
     margin: 0;
-    font-family: var(--fuente-texto);
-    font-size: var(--texto-cuerpo);
+    font-family: "Atkinson Hyperlegible", Arial, sans-serif;
     line-height: 1.6;
     color: var(--color-tinta);
     background-color: var(--color-nube);
 }
 
-/* Quito los márgenes que ponen los navegadores por defecto */
-h1, h2, h3, h4, p, ul, ol, dl, dd, figure {
-    margin: 0;
-}
+h1, h2, h3, h4, p, ul, ol, dl, dd, figure { margin: 0; }
+ul, ol { padding: 0; list-style: none; }
+img { display: block; max-width: 100%; height: auto; }
+a { color: var(--color-cobalto); }
+address { font-style: normal; }
 
-ul, ol {
-    padding: 0;
-    list-style: none;
-}
+/* Contorno naranja para ver dónde está el foco cuando se usa el teclado */
+a:focus, .menu-check:focus + .menu-boton { outline: 3px solid var(--color-naranja); outline-offset: 3px; }
 
-/* Las imágenes nunca se salen de su caja */
-img {
-    display: block;
-    max-width: 100%;
-    height: auto;
-}
+.contenedor { max-width: 1240px; margin: 0 auto; padding: 0 20px; }
 
-address {
-    font-style: normal;
-}
+/* Texto que solo lee el lector de pantalla */
+.oculto { position: absolute; left: -9999px; }
 
-a {
-    color: var(--color-cobalto);
-}
-
-/* Contenedor centrado de 1200px (+ 20px de margen a cada lado) */
-.contenedor {
-    max-width: 1240px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
-
-/* Texto que no se ve pero que sí lee el lector de pantalla */
-.oculto {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    overflow: hidden;
-    clip: rect(0 0 0 0);
-    white-space: nowrap;
-}
-
-/* Enlace "Saltar al contenido": está escondido arriba y baja cuando tiene el foco */
+/* "Saltar al contenido": está escondido y aparece al pulsar Tab */
 .saltar {
     position: absolute;
-    top: -80px;
+    top: -60px;
     left: 16px;
     z-index: 100;
-    padding: 12px 16px;
-    border-radius: 8px;
+    padding: 10px 16px;
     background-color: var(--color-naranja);
     color: var(--color-tinta);
-    font-weight: 700;
 }
+.saltar:focus { top: 16px; }
 
-.saltar:focus {
-    top: 16px;
-}
-
-/* Para que la cabecera fija no tape el principio del contenido */
-#contenido {
-    scroll-margin-top: 100px;
-}
-
-/* Foco visible para quien navega con el teclado (azul en zonas claras y naranja en las oscuras) */
-a:focus-visible,
-.menu-check:focus-visible + .menu-boton {
-    outline: 3px solid var(--color-cobalto);
-    outline-offset: 3px;
-}
-
-.cabecera a:focus-visible,
-.hero a:focus-visible,
-.seccion-azul a:focus-visible,
-.acceso a:focus-visible,
-.llamada a:focus-visible,
-.pie a:focus-visible,
-.menu-check:focus-visible + .menu-boton {
-    outline-color: var(--color-naranja);
-}
-
-
-/* ---------- 4. TEXTOS ---------- */
-
-/* Big Shoulders para los títulos */
-h1, h2, h3, h4,
-.titulo-display {
-    font-family: var(--fuente-titulos);
+/* ---------- TEXTOS ---------- */
+h1, h2, h3, h4, .titulo-display, .logo-nombre, .menu-lista a, .ficha-nombre, .nivel-anio, .hito-anio, .datos-rapidos strong {
+    font-family: "Big Shoulders Display", Impact, sans-serif;
     line-height: 1.05;
 }
 
-h1, h2 {
-    font-weight: 800;
-    text-transform: uppercase;
-}
+h1, h2, .titulo-display, .logo-nombre, .ficha-nombre { font-weight: 800; text-transform: uppercase; }
+h1 { font-size: 3rem; margin-bottom: 16px; }
+h2 { font-size: 2.25rem; margin-bottom: 12px; }
+h3 { font-size: 1.75rem; }
+h4, .tarjeta h3, .razon h3, .aprendizaje h3, .etapa-smr h3 { font-size: 1.375rem; }
+.titulo-display { margin: 24px 0; font-size: 3.75rem; font-weight: 900; line-height: 0.92; }
 
-h3, h4 {
-    font-weight: 700;
-}
+/* Los textos pequeños van en em para que crezcan cuando el body es más grande */
+.entradilla { font-size: 1.125em; color: var(--color-texto-secundario); }
 
-h1 {
-    font-size: var(--texto-h1);
-}
-
-h2 {
-    font-size: var(--texto-h2);
-}
-
-h3 {
-    font-size: var(--texto-h3);
-}
-
-h4 {
-    font-size: var(--texto-h4);
-}
-
-/* El titular grande de la portada */
-.titulo-display {
-    font-size: var(--texto-display);
-    font-weight: 900;
-    line-height: 0.92;
-    text-transform: uppercase;
-}
-
-/* Texto que va debajo de los títulos */
-.entradilla {
-    font-size: var(--texto-entradilla);
-    line-height: 1.5;
+.tarjeta p, .razon p, .aprendizaje p, .etapa-smr p, .nivel-texto, .hito, .datos-rapidos li, .curso-anio, .ficha-rol, figcaption {
+    font-size: 0.875em;
     color: var(--color-texto-secundario);
 }
 
-
-/* ---------- 5. BOTONES, ETIQUETAS E INSIGNIAS ---------- */
-
-/* Todos los botones miden 48px de alto, como en el prototipo */
+/* ---------- BOTONES, ETIQUETAS E INSIGNIAS ---------- */
 .boton {
     display: inline-flex;
     align-items: center;
@@ -260,102 +92,30 @@ h4 {
     padding: 10px 24px;
     border: 2px solid transparent;
     border-radius: 8px;
-    font-family: var(--fuente-texto);
-    font-size: 1rem;
     font-weight: 700;
-    line-height: 1.5;
-    text-align: center;
     text-decoration: none;
-    transition: background-color 0.2s, color 0.2s, transform 0.2s, box-shadow 0.2s;
+    transition: 0.2s;
 }
 
-/* Principal: naranja con una sombra dura, como la tecla de un mando */
-.boton-principal {
-    background-color: var(--color-naranja);
-    color: var(--color-tinta);
-    box-shadow: 0 4px 0 var(--color-tinta);
-}
+/* El principal tiene una sombra dura, como la tecla de un mando */
+.boton-principal { background-color: var(--color-naranja); color: var(--color-tinta); box-shadow: 0 4px 0 var(--color-tinta); }
+.boton-principal:hover { background-color: var(--color-naranja-oscuro); transform: translateY(-2px); }
+.boton-secundario { border-color: var(--color-tinta); color: var(--color-tinta); }
+.boton-secundario:hover { background-color: var(--color-tinta); color: var(--color-blanco); }
+.boton-oscuro { border-color: var(--color-blanco); color: var(--color-blanco); }
+.boton-oscuro:hover { background-color: var(--color-blanco); color: var(--color-tinta); }
 
-.boton-principal:hover {
-    background-color: var(--color-naranja-oscuro);
-    transform: translateY(-2px);
-    box-shadow: 0 6px 0 var(--color-tinta);
-}
+/* En el móvil los botones van uno debajo de otro */
+.botones { display: flex; flex-direction: column; gap: 16px; }
 
-/* Al pulsarlo se "hunde" */
-.boton-principal:active {
-    transform: translateY(2px);
-    box-shadow: 0 2px 0 var(--color-tinta);
-}
+.etiqueta { display: inline-block; padding: 2px 12px; border-radius: 20px; font-size: 0.875rem; font-weight: 700; }
+.etiqueta-naranja { background-color: var(--color-naranja); color: var(--color-tinta); }
+.etiqueta-azul { background-color: var(--color-cobalto-claro); color: var(--color-cobalto-oscuro); }
+.etiqueta-neutra { background-color: var(--color-blanco); border: 1px solid var(--color-borde); }
+.etiqueta-oscura { background-color: var(--color-tinta); color: var(--color-blanco); }
+.etiqueta-cobalto { background-color: var(--color-cobalto); color: var(--color-blanco); }
 
-/* Secundario: solo borde. En hover se rellena */
-.boton-secundario {
-    border-color: var(--color-tinta);
-    color: var(--color-tinta);
-}
-
-.boton-secundario:hover {
-    background-color: var(--color-tinta);
-    color: var(--color-blanco);
-}
-
-/* Para fondos oscuros: borde blanco */
-.boton-oscuro {
-    border-color: var(--color-blanco);
-    color: var(--color-blanco);
-}
-
-.boton-oscuro:hover {
-    background-color: var(--color-blanco);
-    color: var(--color-tinta);
-}
-
-/* Grupo de botones: en el móvil uno debajo de otro y ocupando todo el ancho */
-.botones {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-}
-
-/* Etiquetas pequeñas (Superado, En curso, HTML...) */
-.etiqueta {
-    display: inline-block;
-    padding: 2px 12px;
-    border-radius: 20px;
-    font-family: var(--fuente-texto);
-    font-size: 0.875rem;
-    font-weight: 700;
-    line-height: 1.5;
-    white-space: nowrap;
-}
-
-.etiqueta-naranja {
-    background-color: var(--color-naranja);
-    color: var(--color-tinta);
-}
-
-.etiqueta-azul {
-    background-color: var(--color-cobalto-claro);
-    color: var(--color-cobalto-oscuro);
-}
-
-.etiqueta-neutra {
-    background-color: var(--color-blanco);
-    border: 1px solid var(--color-borde);
-    color: var(--color-tinta);
-}
-
-.etiqueta-oscura {
-    background-color: var(--color-tinta);
-    color: var(--color-blanco);
-}
-
-.etiqueta-cobalto {
-    background-color: var(--color-cobalto);
-    color: var(--color-blanco);
-}
-
-/* Insignias: el cuadrado de color con el icono dentro */
+/* Insignia: el cuadrado con el icono */
 .insignia {
     display: inline-flex;
     align-items: center;
@@ -368,108 +128,25 @@ h4 {
     color: var(--color-cobalto);
     font-size: 1.25rem;
 }
+.insignia-azul { background-color: var(--color-cobalto); color: var(--color-blanco); }
+.insignia-naranja { background-color: var(--color-naranja); color: var(--color-tinta); }
+.insignia-tinta { background-color: var(--color-tinta); color: var(--color-naranja); }
 
-.insignia-azul {
-    background-color: var(--color-cobalto);
-    color: var(--color-blanco);
-}
+.tarjeta { padding: 24px; border: 1px solid var(--color-borde); border-radius: 16px; background-color: var(--color-blanco); color: var(--color-tinta); }
+.tarjeta h3, .tarjeta h4 { margin: 16px 0 8px; }
 
-.insignia-naranja {
-    background-color: var(--color-naranja);
-    color: var(--color-tinta);
-}
+/* ---------- CABECERA Y MENÚ ---------- */
+/* sticky: la cabecera se queda arriba al hacer scroll */
+.cabecera { position: sticky; top: 0; z-index: 50; background-color: var(--color-tinta); }
+.cabecera-contenido { display: flex; align-items: center; justify-content: space-between; height: 64px; }
 
-.insignia-tinta {
-    background-color: var(--color-tinta);
-    color: var(--color-naranja);
-}
+.logo { display: flex; align-items: center; gap: 10px; color: var(--color-blanco); text-decoration: none; }
+.logo-nombre { display: block; font-size: 1.375rem; }
+.logo-centro { display: block; font-size: 0.75rem; line-height: 1.2; color: var(--color-cobalto-claro); }
 
+/* Menú del móvil sin JavaScript: el checkbox no se ve y el label hace de botón */
+.menu-check { position: absolute; width: 1px; height: 1px; opacity: 0; }
 
-/* ---------- 6. TARJETAS ---------- */
-
-.tarjeta {
-    padding: 24px;
-    border: 1px solid var(--color-borde);
-    border-radius: 16px;
-    background-color: var(--color-blanco);
-    color: var(--color-tinta);
-    transition: border-color 0.2s;
-}
-
-/* Las tarjetas no son enlaces, así que en hover solo cambia el borde (no se mueven) */
-.tarjeta:hover {
-    border-color: var(--color-cobalto-medio);
-}
-
-.tarjeta h3,
-.tarjeta h4 {
-    margin: 16px 0 8px;
-    font-size: var(--texto-h4);
-}
-
-.tarjeta p {
-    font-size: var(--texto-pequeno);
-    color: var(--color-texto-secundario);
-}
-
-
-/* ---------- 7. CABECERA Y MENÚ ---------- */
-
-/* La cabecera se queda fija arriba al hacer scroll */
-.cabecera {
-    position: sticky;
-    top: 0;
-    z-index: 50;
-    background-color: var(--color-tinta);
-    color: var(--color-blanco);
-}
-
-.cabecera-contenido {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    height: 64px;
-}
-
-/* Logo: favicono + nombre de la web (se usa también en el pie) */
-.logo {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    color: var(--color-blanco);
-    text-decoration: none;
-}
-
-.logo img {
-    width: 32px;
-    height: 32px;
-}
-
-.logo-nombre {
-    display: block;
-    font-family: var(--fuente-titulos);
-    font-size: 1.25rem;
-    font-weight: 800;
-    line-height: 1.1;
-    text-transform: uppercase;
-}
-
-.logo-centro {
-    display: block;
-    font-size: 0.75rem;
-    line-height: 1.3;
-    color: var(--color-cobalto-claro);
-}
-
-/* El checkbox no se ve, pero se puede usar con el teclado (no le pongo display:none) */
-.menu-check {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    opacity: 0;
-}
-
-/* Botón hamburguesa de 44 x 44px */
 .menu-boton {
     display: flex;
     align-items: center;
@@ -478,25 +155,15 @@ h4 {
     height: 44px;
     border: 1px solid rgba(255, 255, 255, 0.3);
     border-radius: 8px;
-    background-color: rgba(255, 255, 255, 0.08);
+    color: var(--color-blanco);
     font-size: 1.375rem;
     cursor: pointer;
 }
 
-.icono-cerrar {
-    display: none;
-}
+/* Cuando el checkbox está marcado cambia el icono y se enseña el menú */
+.icono-cerrar, .menu-check:checked + .menu-boton .icono-abrir { display: none; }
+.menu-check:checked + .menu-boton .icono-cerrar { display: inline-block; }
 
-/* Cuando el checkbox está marcado cambio el icono: de hamburguesa a X */
-.menu-check:checked + .menu-boton .icono-abrir {
-    display: none;
-}
-
-.menu-check:checked + .menu-boton .icono-cerrar {
-    display: inline-block;
-}
-
-/* En el móvil el menú ocupa toda la pantalla y está oculto */
 .menu {
     display: none;
     position: fixed;
@@ -507,192 +174,61 @@ h4 {
     flex-direction: column;
     justify-content: space-between;
     padding: 8px 20px 40px;
-    overflow-y: auto;
     background-color: var(--color-tinta);
 }
-
-/* Se enseña cuando se marca el checkbox (al pulsar la hamburguesa) */
-.menu-check:checked ~ .menu {
-    display: flex;
-}
+.menu-check:checked ~ .menu { display: flex; }
 
 .menu-lista a {
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 20px 0;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
-    font-family: var(--fuente-titulos);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+    color: var(--color-blanco);
     font-size: 2.25rem;
     font-weight: 800;
-    line-height: 1.1;
     text-transform: uppercase;
-    color: var(--color-blanco);
     text-decoration: none;
 }
+.menu-lista i { font-size: 1.25rem; color: var(--color-naranja); }
+.menu-lista .activo { color: var(--color-naranja); }
+.menu-datos { font-size: 0.875rem; color: var(--color-cobalto-claro); }
+.menu-datos-centro { font-weight: 700; color: var(--color-blanco); }
 
-.menu-lista a i {
-    font-size: 1.25rem;
-    color: var(--color-naranja);
-}
+/* Migas de pan */
+.migas { padding: 12px 0; border-bottom: 1px solid var(--color-borde); background-color: var(--color-blanco); font-size: 0.875rem; }
+.migas ol, .migas li { display: flex; align-items: center; gap: 8px; }
+.migas i { font-size: 0.75rem; color: var(--color-cobalto); }
+.migas span { font-weight: 700; }
 
-/* La página en la que estoy */
-.menu-lista a.activo {
-    color: var(--color-naranja);
-}
+/* ---------- SECCIONES ---------- */
+.seccion { padding: 64px 0; }
+.seccion-blanca { background-color: var(--color-blanco); }
+.seccion-azul { background-color: var(--color-cobalto); color: var(--color-blanco); }
+.seccion-azul .entradilla { color: var(--color-blanco); }
+.encabezado-seccion { max-width: 720px; margin-bottom: 40px; }
 
-.menu-datos {
-    padding-top: 24px;
-    font-size: 0.875rem;
-    color: var(--color-cobalto-claro);
-}
+/* Cajas que en el móvil van en columna y en el ordenador en fila */
+.hero-contenido, .cabecera-pagina-contenido, .favicono, .ubicacion { display: flex; flex-direction: column; gap: 40px; }
+.tarjetas-tres, .accesos, .razones, .hitos, .familias, .datos-rapidos, .ubicacion-datos, .llamada { display: flex; flex-direction: column; gap: 24px; }
 
-.menu-datos-centro {
-    font-weight: 700;
-    color: var(--color-blanco);
-}
+.cabecera-pagina { padding: 32px 0 64px; }
+.cabecera-pagina-imagen img { width: 100%; height: 300px; object-fit: cover; border-radius: 16px; }
 
-
-/* ---------- 8. MIGAS DE PAN ---------- */
-
-.migas {
-    padding: 12px 0;
-    border-bottom: 1px solid var(--color-borde);
-    background-color: var(--color-blanco);
-    font-size: 0.875rem;
-}
-
-.migas ol {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-}
-
-.migas li {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
-
-.migas .fa-house {
-    color: var(--color-cobalto);
-}
-
-.migas .fa-chevron-right {
-    font-size: 0.625rem;
-    color: var(--color-texto-secundario);
-}
-
-.migas span {
-    font-weight: 700;
-}
-
-
-/* ---------- 9. SECCIONES ---------- */
-
-.seccion {
-    padding: 64px 0;
-}
-
-.seccion-blanca {
-    background-color: var(--color-blanco);
-}
-
-.seccion-azul {
-    background-color: var(--color-cobalto);
-    color: var(--color-blanco);
-}
-
-.seccion-azul .entradilla {
-    color: var(--color-blanco);
-}
-
-/* Título y entradilla de cada sección */
-.encabezado-seccion {
-    max-width: 720px;
-    margin-bottom: 40px;
-}
-
-.encabezado-seccion h2 {
-    margin-bottom: 12px;
-}
-
-/* Cabecera de las páginas interiores (El centro y Mis estudios) */
-.cabecera-pagina {
-    padding: 32px 0 64px;
-}
-
-.cabecera-pagina-contenido {
-    display: flex;
-    flex-direction: column;
-    gap: 32px;
-}
-
-.cabecera-pagina h1 {
-    margin-bottom: 16px;
-}
-
-.cabecera-pagina-imagen img {
-    width: 100%;
-    aspect-ratio: 4 / 3;
-    object-fit: cover;
-    border-radius: 16px;
-}
-
-
-/* ---------- 10. INICIO ---------- */
-
-/* HERO: fondo azul con la franja diagonal (una línea naranja y una banda más oscura) */
+/* ---------- INICIO ---------- */
+/* Fondo azul con la franja diagonal: una línea naranja y una banda más oscura */
 .hero {
     padding: 40px 0 64px;
-    background-color: var(--color-cobalto);
-    background-image: linear-gradient(162deg,
-        var(--color-cobalto) 70%,
-        var(--color-naranja) 70%,
-        var(--color-naranja) 71%,
-        var(--color-cobalto) 71%,
-        var(--color-cobalto) 74%,
-        var(--color-cobalto-oscuro) 74%,
-        var(--color-cobalto-oscuro) 88%,
-        var(--color-cobalto) 88%);
+    background: linear-gradient(162deg, var(--color-cobalto) 70%, var(--color-naranja) 70%, var(--color-naranja) 71%,
+        var(--color-cobalto) 71%, var(--color-cobalto) 74%, var(--color-cobalto-oscuro) 74%, var(--color-cobalto-oscuro) 88%, var(--color-cobalto) 88%);
     color: var(--color-blanco);
-    overflow: hidden;
 }
 
-.hero-contenido {
-    display: flex;
-    flex-direction: column;
-    gap: 48px;
-}
+.chip { display: inline-flex; align-items: center; gap: 8px; padding: 4px 14px; border-radius: 20px; background-color: var(--color-cobalto-oscuro); font-size: 0.875rem; font-weight: 700; }
+.chip i { color: var(--color-naranja); }
+.hero-entradilla { max-width: 540px; margin-bottom: 32px; font-size: 1.125em; }
 
-/* Chip de "Modo carrera" */
-.chip {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    padding: 4px 16px 4px 12px;
-    border-radius: 20px;
-    background-color: var(--color-cobalto-oscuro);
-    font-size: 0.875rem;
-    font-weight: 700;
-}
-
-.chip i {
-    color: var(--color-naranja);
-}
-
-.hero .titulo-display {
-    margin: 24px 0;
-}
-
-.hero-entradilla {
-    max-width: 540px;
-    margin-bottom: 32px;
-    font-size: var(--texto-entradilla);
-    line-height: 1.5;
-}
-
-/* FICHA DE JUGADOR */
+/* Ficha de jugador */
 .ficha {
     width: 100%;
     max-width: 400px;
@@ -702,154 +238,33 @@ h4 {
     color: var(--color-tinta);
     box-shadow: 12px 12px 0 var(--color-naranja);
 }
+.ficha-cabecera { position: relative; display: flex; align-items: center; justify-content: center; height: 200px; background-color: var(--color-cobalto-claro); }
+.ficha-nivel, .ficha-escudo, .ficha-curso { position: absolute; top: 16px; left: 16px; }
+.ficha-escudo { top: 56px; width: 76px; height: 48px; padding: 4px 6px; border-radius: 8px; background-color: var(--color-blanco); object-fit: contain; }
+.ficha-curso { left: auto; right: 16px; font-size: 0.8125rem; font-weight: 700; color: var(--color-cobalto); }
+.ficha-foto { width: 120px; }
+.ficha-datos { padding: 24px; }
+.ficha-nombre { font-size: 2.5rem; }
+.ficha-rol { padding-bottom: 16px; border-bottom: 1px solid var(--color-borde); }
+.ficha-lista { padding: 8px 0; }
+.ficha-lista li, .progreso p { display: flex; justify-content: space-between; gap: 16px; padding: 6px 0; font-size: 0.875rem; }
+.ficha-lista span { color: var(--color-texto-secundario); }
+.ficha-lista i, .progreso strong { color: var(--color-cobalto); }
+.ficha-lista i { width: 20px; }
 
-.ficha-cabecera {
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 200px;
-    background-color: var(--color-cobalto-claro);
-}
+/* Barra de progreso (se llena con la animación "llenar") */
+.barra { height: 8px; overflow: hidden; border-radius: 4px; background-color: var(--color-cobalto-claro); }
+.barra-relleno { display: block; width: 55%; height: 100%; background-color: var(--color-naranja); animation: llenar 1.5s ease-out; }
 
-.ficha-nivel {
-    position: absolute;
-    top: 16px;
-    left: 16px;
-}
+/* Mi camino: en el móvil la línea va en vertical (es el borde izquierdo de cada nivel) */
+.nivel { position: relative; margin-left: 19px; padding: 0 0 32px 40px; border-left: 3px solid var(--color-naranja); }
+.nivel-actual, .nivel-bloqueado { border-left: 3px dashed var(--color-cobalto-medio); }
+.nivel-meta { padding-bottom: 0; border-color: transparent; }
 
-.ficha-escudo {
-    position: absolute;
-    top: 56px;
-    left: 16px;
-    width: 76px;
-    height: 48px;
-    padding: 4px 6px;
-    border-radius: 8px;
-    background-color: var(--color-blanco);
-    object-fit: contain;
-}
-
-.ficha-curso {
-    position: absolute;
-    top: 16px;
-    right: 16px;
-    font-size: 0.8125rem;
-    font-weight: 700;
-    color: var(--color-cobalto);
-}
-
-.ficha-foto {
-    width: 120px;
-    height: 120px;
-}
-
-.ficha-datos {
-    padding: 24px;
-}
-
-.ficha-nombre {
-    font-family: var(--fuente-titulos);
-    font-size: 2.5rem;
-    font-weight: 800;
-    line-height: 1;
-    text-transform: uppercase;
-}
-
-.ficha-rol {
-    margin-top: 4px;
-    padding-bottom: 16px;
-    border-bottom: 1px solid var(--color-borde);
-    font-size: 0.875rem;
-    color: var(--color-texto-secundario);
-}
-
-.ficha-lista {
-    padding: 8px 0;
-}
-
-.ficha-lista li {
-    display: flex;
-    justify-content: space-between;
-    gap: 16px;
-    padding: 6px 0;
-    font-size: 0.875rem;
-}
-
-.ficha-lista span {
-    color: var(--color-texto-secundario);
-}
-
-.ficha-lista i {
-    width: 20px;
-    color: var(--color-cobalto);
-}
-
-.progreso p {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 8px;
-    font-size: 0.8125rem;
-    color: var(--color-texto-secundario);
-}
-
-.progreso strong {
-    color: var(--color-cobalto);
-}
-
-/* Barra de progreso: el relleno se anima al cargar la página */
-.barra {
-    height: 8px;
-    overflow: hidden;
-    border-radius: 4px;
-    background-color: var(--color-cobalto-claro);
-}
-
-.barra-relleno {
-    display: block;
-    width: 55%;
-    height: 100%;
-    border-radius: 4px;
-    background-color: var(--color-naranja);
-    animation: llenar 1.2s 0.6s ease-out backwards;
-}
-
-/* MI CAMINO: línea de niveles. En el móvil va en vertical */
-.nivel {
-    position: relative;
-    padding: 0 0 32px 60px;
-}
-
-/* La línea que une un nivel con el siguiente (la hago con ::before) */
-.nivel::before {
-    content: "";
-    position: absolute;
-    top: 44px;
-    bottom: 4px;
-    left: 19px;
-    border-left: 3px solid var(--color-naranja);
-}
-
-/* Lo que todavía no he hecho va con línea discontinua */
-.nivel-actual::before,
-.nivel-bloqueado::before {
-    border-left: 3px dashed var(--color-cobalto-medio);
-}
-
-/* El último nivel no tiene línea */
-.nivel-meta {
-    padding-bottom: 0;
-}
-
-.nivel-meta::before {
-    display: none;
-}
-
-/* El círculo de cada nivel */
 .nivel-punto {
     position: absolute;
     top: 0;
-    left: 0;
+    left: -22px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -859,1061 +274,193 @@ h4 {
     background-color: var(--color-cobalto);
     color: var(--color-blanco);
 }
-
-.nivel-actual .nivel-punto {
-    background-color: var(--color-naranja);
-    color: var(--color-tinta);
-    box-shadow: 0 0 0 4px var(--color-nube), 0 0 0 7px var(--color-naranja);
-    animation: latido 2s ease-in-out infinite;
-}
-
-.nivel-bloqueado .nivel-punto {
-    border: 2px solid var(--color-cobalto-medio);
-    background-color: var(--color-blanco);
-    color: var(--color-texto-secundario);
-}
-
-.nivel-meta .nivel-punto {
-    background-color: var(--color-tinta);
-    color: var(--color-naranja);
-}
-
-.nivel-numero {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 8px;
-    font-size: 0.8125rem;
-    font-weight: 700;
-    color: var(--color-texto-secundario);
-}
-
-.nivel-anio {
-    margin-bottom: 4px;
-    font-family: var(--fuente-titulos);
-    font-size: 1.5rem;
-    font-weight: 700;
-    line-height: 1.3;
-    color: var(--color-cobalto);
-}
-
-.nivel-bloqueado .nivel-anio,
-.nivel-meta .nivel-anio {
-    color: var(--color-texto-secundario);
-}
-
-.nivel h3 {
-    margin-bottom: 8px;
-    font-family: var(--fuente-texto);
-    font-size: 1.125rem;
-}
-
-.nivel-texto {
-    font-size: var(--texto-pequeno);
-    color: var(--color-texto-secundario);
-}
-
-/* MI FAVICONO */
-.favicono {
-    display: flex;
-    flex-direction: column;
-    gap: 40px;
-}
-
-.favicono-muestra {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 32px;
-    padding: 24px;
-    border-radius: 20px;
-    background-color: var(--color-cobalto-claro);
-}
-
-/* Imitación de la pestaña del navegador */
-.pestana-barra {
-    align-self: stretch;
-    padding: 6px 6px 0;
-    border-radius: 10px;
-    background-color: var(--color-cobalto-medio);
-}
-
-.pestana {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    padding: 8px 16px;
-    border-radius: 8px 8px 0 0;
-    background-color: var(--color-blanco);
-    font-size: 0.8125rem;
-}
-
-.favicono-grande {
-    width: 140px;
-    height: 140px;
-}
-
-.favicono-tamanos {
-    display: flex;
-    align-items: flex-end;
-    justify-content: center;
-    gap: 24px;
-}
-
-.favicono-tamanos li {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 8px;
-    font-size: 0.75rem;
-    color: var(--color-texto-secundario);
-}
-
-/* El de 180px no cabe en el móvil */
-.favicono-tamanos .tamano-movil {
-    display: none;
-}
-
-.favicono-texto .encabezado-seccion {
-    margin-bottom: 32px;
-}
-
-.razones {
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
-}
-
-.razon {
-    display: flex;
-    align-items: flex-start;
-    gap: 16px;
-}
-
-.razon h3 {
-    margin-bottom: 4px;
-    font-size: var(--texto-h4);
-}
-
-.razon p {
-    font-size: var(--texto-pequeno);
-    color: var(--color-texto-secundario);
-}
-
-/* POR QUÉ LO RECOMIENDO: tres tarjetas */
-.tarjetas-tres {
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
-}
-
-/* SIGUE EXPLORANDO: las dos tarjetas que llevan a las otras páginas */
-.accesos {
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
-}
-
-.acceso {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 12px;
-    padding: 24px;
-    border-radius: 20px;
-    color: var(--color-blanco);
-    transition: transform 0.2s;
-}
-
-/* Estas sí llevan a otra página, por eso suben un poco en hover */
-.acceso:hover {
-    transform: translateY(-4px);
-}
-
-.acceso-oscuro {
-    background-color: var(--color-tinta);
-}
-
-.acceso-azul {
-    background-color: var(--color-cobalto);
-}
-
-.acceso img {
-    width: 100%;
-    height: 220px;
-    margin-bottom: 8px;
-    object-fit: cover;
-    border-radius: 12px;
-}
-
-.acceso p {
-    margin-bottom: 8px;
-}
-
-
-/* ---------- 11. EL CENTRO (FLEXBOX) ---------- */
-
-/* Datos rápidos: 1933, 3 y 18. En el móvil uno debajo de otro, con el texto al lado del número */
-.datos-rapidos {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-    margin-top: 32px;
-}
-
-.datos-rapidos li {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    padding-left: 16px;
-    border-left: 4px solid var(--color-naranja);
-    font-size: var(--texto-pequeno);
-    color: var(--color-texto-secundario);
-}
-
-.datos-rapidos strong {
-    font-family: var(--fuente-titulos);
-    font-size: var(--texto-h1);
-    font-weight: 800;
-    line-height: 1;
-    color: var(--color-cobalto);
-}
-
-/* Historia: en el móvil un hito debajo de otro */
-.hitos {
-    display: flex;
-    flex-direction: column;
-    gap: 32px;
-}
-
-.hito {
-    padding-top: 16px;
-    border-top: 3px solid var(--color-cobalto-medio);
-    font-size: var(--texto-pequeno);
-    color: var(--color-texto-secundario);
-}
-
-.hito-anio {
-    margin-bottom: 8px;
-    font-family: var(--fuente-titulos);
-    font-size: var(--texto-h3);
-    font-weight: 700;
-    line-height: 1.1;
-    color: var(--color-cobalto);
-}
-
-/* El último (Hoy) va en naranja */
-.hito-hoy {
-    border-top-color: var(--color-naranja);
-}
-
-.hito-hoy .hito-anio {
-    color: var(--color-naranja-oscuro);
-}
-
-/* Familias profesionales */
-.familias {
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
-}
-
-.familia-cabecera {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 12px;
-}
-
-/* La mía tiene el borde naranja */
-.familia-mia {
-    border: 2px solid var(--color-naranja);
-}
-
-.familia-mia:hover {
-    border-color: var(--color-naranja);
-}
-
-.familia-ciclos dt {
-    margin-top: 16px;
-}
-
-.familia-ciclos dd {
-    margin-top: 6px;
-    font-size: var(--texto-pequeno);
-}
-
-/* Instalaciones: con flex-wrap las tarjetas bajan solas a la siguiente fila.
-   Cada tarjeta mide como mínimo 260px, así salen 4, 2 o 1 por fila según la pantalla */
-.instalaciones {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 16px;
-}
-
-.instalaciones > article {
-    flex: 1 1 260px;
-}
-
-/* Más allá de las clases: tarjetas blancas sobre el fondo azul.
-   Con 300px de base salen 1 o 2 por fila (en el ordenador las pongo las 4 en fila) */
-.servicios {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 16px;
-}
-
-.servicios > article {
-    flex: 1 1 300px;
-    border: none;
-}
-
-.otros-proyectos {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 12px;
-    margin-top: 40px;
-    font-size: var(--texto-pequeno);
-}
-
-.otros-proyectos ul {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-}
-
-/* Dónde está: el mapa y los datos */
-.ubicacion {
-    display: flex;
-    flex-direction: column;
-    gap: 40px;
-}
-
-.ubicacion-mapa img {
-    border-radius: 16px;
-}
-
-.ubicacion-mapa figcaption {
-    margin-top: 8px;
-    font-size: 0.8125rem;
-    color: var(--color-texto-secundario);
-}
-
-.ubicacion-datos {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 24px;
-}
-
-.centro-nombre {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-}
-
-.centro-nombre img {
-    width: 72px;
-    padding: 6px 8px;
-    border: 1px solid var(--color-borde);
-    border-radius: 10px;
-    background-color: var(--color-blanco);
-}
-
-.lista-contacto li {
-    display: flex;
-    align-items: baseline;
-    gap: 12px;
-    padding: 6px 0;
-}
-
-.lista-contacto i {
-    width: 20px;
-    text-align: center;
-    color: var(--color-cobalto);
-}
-
-.lista-contacto a {
-    color: var(--color-tinta);
-}
-
-.entorno {
-    align-self: stretch;
-}
-
-.entorno h3 {
-    margin-top: 0;
-}
-
-
-/* ---------- 12. MIS ESTUDIOS (GRID) ---------- */
-
-/* Mi recorrido: SMR > 1º DAW > 2º DAW */
-.recorrido {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    margin-top: 24px;
-}
-
-.recorrido li {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
-
-.recorrido i {
-    font-size: 0.75rem;
-    color: var(--color-texto-secundario);
-}
-
-/* Etapa anterior (SMR) */
-.etapa-smr {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-    padding: 24px;
-    border-radius: 16px;
-    background-color: var(--color-cobalto-claro);
-}
-
-.etapa-titulo {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 8px 12px;
-    margin-bottom: 8px;
-}
-
-.etapa-titulo h3 {
-    font-size: var(--texto-h4);
-}
-
-.etapa-smr p {
-    font-size: var(--texto-pequeno);
-    color: var(--color-texto-secundario);
-}
-
-/* Título de cada curso (1º de DAW y 2º de DAW) */
-.curso-titulo {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 8px 16px;
-    margin: 48px 0 24px;
-}
-
-.curso-anio {
-    font-size: var(--texto-pequeno);
-    color: var(--color-texto-secundario);
-}
-
-/* GRID de los módulos: en el móvil una sola columna */
-.modulos {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 16px;
-}
-
-/* Diseño de interfaces web: el módulo de esta web */
-.modulo--destacado {
-    border: 2px solid var(--color-naranja);
-}
-
-.modulo--destacado:hover {
-    border-color: var(--color-naranja);
-}
-
-.modulo--destacado .etiqueta {
-    margin-top: 16px;
-}
-
-.modulo--destacado h4 {
-    margin-top: 8px;
-}
-
-/* GRID de los proyectos: en el móvil una sola columna */
-.proyectos {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 16px;
-}
-
-.tecnologias {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    margin-top: 16px;
-}
-
-/* El proyecto destacado (esta web) */
-.proyecto--destacado {
-    display: flex;
-    flex-direction: column;
-    padding: 24px;
-    border-radius: 20px;
-    background-color: var(--color-tinta);
-    color: var(--color-blanco);
-}
-
-.proyecto--destacado .tecnologias {
-    margin: 24px 0 12px;
-}
-
-.proyecto--destacado h3 {
-    margin-bottom: 12px;
-}
-
-/* Navegador hecho con CSS para enseñar la captura */
-.navegador {
-    overflow: hidden;
-    border-radius: 10px;
-    background-color: var(--color-blanco);
-}
-
-.navegador-barra {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    padding: 8px 12px;
-    background-color: var(--color-cobalto-claro);
-}
-
-.punto {
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    background-color: var(--color-cobalto-medio);
-}
-
-.punto:first-child {
-    background-color: var(--color-naranja);
-}
-
-.navegador-url {
-    flex: 1;
-    margin-left: 8px;
-    padding: 2px 12px;
-    border-radius: 20px;
-    background-color: var(--color-blanco);
-    font-size: 0.75rem;
-    color: var(--color-texto-secundario);
-}
-
-/* Lo que me llevo */
-.aprendizajes {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 32px;
-}
-
-.aprendizaje {
-    display: flex;
-    align-items: flex-start;
-    gap: 16px;
-}
-
-.aprendizaje h3 {
-    margin-bottom: 4px;
-    font-size: var(--texto-h4);
-}
-
-.aprendizaje p {
-    color: var(--color-texto-secundario);
-}
-
-/* Siguiente nivel: la tarjeta oscura del final */
-.llamada {
-    display: flex;
-    flex-direction: column;
-    gap: 32px;
-    padding: 32px 24px;
-    border-radius: 20px;
-    background-color: var(--color-tinta);
-    color: var(--color-blanco);
-}
-
-.llamada h2 {
-    margin: 16px 0 12px;
-}
-
-.llamada p {
-    max-width: 620px;
-}
-
-
-/* ---------- 13. PIE DE PÁGINA ---------- */
-
-.pie {
-    padding: 48px 0 32px;
-    background-color: var(--color-tinta);
-    color: var(--color-blanco);
-    text-align: center;
-}
-
-/* Todo centrado (equilibrio formal) */
-.pie-contenido {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 24px;
-}
-
-.pie .logo {
-    text-align: left;
-}
-
-.pie .logo img {
-    width: 40px;
-    height: 40px;
-}
-
-.pie-texto {
-    max-width: 420px;
-    font-size: var(--texto-pequeno);
-    color: var(--color-cobalto-claro);
-}
-
-.pie-menu {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 24px;
-}
-
-.pie a {
-    color: var(--color-blanco);
-}
-
-.pie-menu a {
-    font-weight: 700;
-}
-
-.pie-menu a:hover,
-.pie-contacto a:hover {
-    color: var(--color-naranja);
-}
-
-.pie-contacto {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    font-size: var(--texto-pequeno);
-}
-
-.pie-contacto i {
-    margin-right: 6px;
-    color: var(--color-naranja);
-}
-
-/* El botón "Volver arriba" no lleva subrayado */
-.pie .boton {
-    text-decoration: none;
-}
-
-.pie-legal {
-    width: 100%;
-    padding-top: 24px;
-    border-top: 1px solid rgba(255, 255, 255, 0.3);
-    font-size: 0.8125rem;
-}
-
-.pie-creditos {
-    font-size: 0.75rem;
-    color: var(--color-cobalto-claro);
-}
-
-
-/* ---------- 14. ANIMACIONES ---------- */
-
-/* El contenido de arriba aparece desde abajo al cargar la página */
+.nivel-actual .nivel-punto { background-color: var(--color-naranja); color: var(--color-tinta); box-shadow: 0 0 0 4px var(--color-nube), 0 0 0 7px var(--color-naranja); }
+.nivel-bloqueado .nivel-punto { border: 2px solid var(--color-cobalto-medio); background-color: var(--color-blanco); color: var(--color-texto-secundario); }
+.nivel-meta .nivel-punto { background-color: var(--color-tinta); color: var(--color-naranja); }
+
+.nivel-numero { display: flex; align-items: center; gap: 8px; font-size: 0.8125rem; font-weight: 700; color: var(--color-texto-secundario); }
+.nivel-anio { font-size: 1.5rem; font-weight: 700; color: var(--color-cobalto); }
+.nivel-bloqueado .nivel-anio, .nivel-meta .nivel-anio { color: var(--color-texto-secundario); }
+.nivel h3 { margin: 4px 0 8px; font-family: "Atkinson Hyperlegible", Arial, sans-serif; font-size: 1.125rem; }
+
+/* Mi favicono */
+.favicono-muestra { display: flex; flex-direction: column; align-items: center; gap: 32px; padding: 24px; border-radius: 20px; background-color: var(--color-cobalto-claro); }
+.pestana-barra { align-self: stretch; padding: 6px 6px 0; border-radius: 10px; background-color: var(--color-cobalto-medio); }
+.pestana { display: inline-flex; align-items: center; gap: 8px; padding: 8px 16px; border-radius: 8px 8px 0 0; background-color: var(--color-blanco); font-size: 0.8125rem; }
+.favicono-grande { width: 140px; }
+.favicono-tamanos { display: flex; align-items: flex-end; gap: 24px; }
+.favicono-tamanos li { display: flex; flex-direction: column; align-items: center; gap: 8px; font-size: 0.75rem; }
+.favicono-tamanos .tamano-movil { display: none; }
+.razon, .aprendizaje { display: flex; align-items: flex-start; gap: 16px; }
+
+/* Sigue explorando */
+.acceso { display: flex; flex-direction: column; align-items: flex-start; gap: 12px; padding: 24px; border-radius: 20px; color: var(--color-blanco); }
+.acceso-oscuro { background-color: var(--color-tinta); }
+.acceso-azul { background-color: var(--color-cobalto); }
+.acceso img { width: 100%; height: 220px; object-fit: cover; border-radius: 12px; }
+
+/* ---------- EL CENTRO (FLEXBOX) ---------- */
+.datos-rapidos { margin-top: 32px; }
+.datos-rapidos li { display: flex; align-items: center; gap: 16px; padding-left: 16px; border-left: 4px solid var(--color-naranja); }
+.datos-rapidos strong { font-size: 3rem; font-weight: 800; line-height: 1; color: var(--color-cobalto); }
+
+.hito { padding-top: 16px; border-top: 3px solid var(--color-cobalto-medio); }
+.hito-anio { margin-bottom: 8px; font-size: 1.75rem; font-weight: 700; color: var(--color-cobalto); }
+.hito-hoy { border-top-color: var(--color-naranja); }
+.hito-hoy .hito-anio { color: var(--color-naranja-oscuro); }
+
+.familia-cabecera { display: flex; align-items: center; justify-content: space-between; }
+.familia-ciclos dt { margin-top: 16px; }
+.familia-ciclos dd { margin-top: 6px; font-size: 0.875em; }
+
+/* Las dos tarjetas "mías" llevan el borde naranja */
+.familia-mia, .modulo--destacado { border: 2px solid var(--color-naranja); }
+
+/* flex-wrap: las tarjetas bajan solas a la fila de abajo cuando no caben */
+.instalaciones, .servicios { display: flex; flex-wrap: wrap; gap: 16px; }
+.instalaciones > article { flex: 1 1 260px; }
+.servicios > article { flex: 1 1 300px; border: none; }
+
+.otros-proyectos, .otros-proyectos ul, .recorrido, .recorrido li, .tecnologias, .curso-titulo, .etapa-titulo { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; }
+.otros-proyectos { margin-top: 40px; }
+
+.ubicacion-mapa img { border-radius: 16px; }
+.ubicacion-mapa figcaption { margin-top: 8px; }
+.ubicacion-datos { align-items: flex-start; }
+.centro-nombre { display: flex; align-items: center; gap: 16px; }
+.centro-nombre img { width: 72px; padding: 6px; border: 1px solid var(--color-borde); border-radius: 10px; background-color: var(--color-blanco); }
+.lista-contacto li { display: flex; align-items: baseline; gap: 12px; padding: 6px 0; }
+.lista-contacto i { width: 20px; color: var(--color-cobalto); }
+.lista-contacto a { color: var(--color-tinta); }
+.entorno { align-self: stretch; }
+.entorno h3 { margin-top: 0; }
+
+/* ---------- MIS ESTUDIOS (GRID) ---------- */
+.recorrido { margin-top: 24px; }
+.recorrido i { font-size: 0.75rem; }
+
+.etapa-smr { display: flex; flex-direction: column; gap: 16px; padding: 24px; border-radius: 16px; background-color: var(--color-cobalto-claro); }
+.etapa-titulo { margin-bottom: 8px; }
+.curso-titulo { margin: 48px 0 24px; }
+
+/* En el móvil todas las grids tienen una sola columna */
+.modulos, .proyectos, .aprendizajes { display: grid; grid-template-columns: 1fr; gap: 16px; }
+.modulo--destacado .etiqueta { margin-top: 16px; }
+.modulo--destacado h4 { margin-top: 8px; }
+.tecnologias { margin-top: 16px; }
+
+/* Proyecto destacado con una captura de esta web dentro de un navegador dibujado con CSS */
+.proyecto--destacado { padding: 24px; border-radius: 20px; background-color: var(--color-tinta); color: var(--color-blanco); }
+.proyecto--destacado .tecnologias { margin: 24px 0 12px; }
+.proyecto--destacado h3 { margin-bottom: 12px; }
+.navegador { overflow: hidden; border-radius: 10px; background-color: var(--color-blanco); }
+.navegador-barra { display: flex; align-items: center; gap: 6px; padding: 8px 12px; background-color: var(--color-cobalto-claro); }
+.punto { width: 10px; height: 10px; border-radius: 50%; background-color: var(--color-cobalto-medio); }
+.punto:first-child { background-color: var(--color-naranja); }
+.navegador-url { flex: 1; margin-left: 8px; padding: 2px 12px; border-radius: 20px; background-color: var(--color-blanco); font-size: 0.75rem; color: var(--color-texto-secundario); }
+
+.aprendizajes { gap: 32px 48px; }
+.razon h3, .aprendizaje h3 { margin-bottom: 4px; }
+
+/* Siguiente nivel */
+.llamada { gap: 32px; padding: 32px 24px; border-radius: 20px; background-color: var(--color-tinta); color: var(--color-blanco); }
+.llamada h2 { margin-top: 16px; }
+
+/* ---------- PIE DE PÁGINA ---------- */
+.pie { padding: 48px 0 32px; background-color: var(--color-tinta); color: var(--color-blanco); text-align: center; }
+.pie-contenido { display: flex; flex-direction: column; align-items: center; gap: 24px; }
+.pie .logo { text-align: left; }
+.pie a { color: var(--color-blanco); }
+.pie-texto, .pie-creditos { max-width: 600px; font-size: 0.875rem; color: var(--color-cobalto-claro); }
+.pie-menu, .pie-contacto { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px 24px; }
+.pie-menu a { font-weight: 700; }
+.pie-contacto { font-size: 0.875rem; }
+.pie-contacto i { margin-right: 6px; color: var(--color-naranja); }
+.pie-legal { width: 100%; padding-top: 24px; border-top: 1px solid rgba(255, 255, 255, 0.3); font-size: 0.8125rem; }
+
+/* ---------- ANIMACIONES ---------- */
 @keyframes aparecer {
-    from {
-        opacity: 0;
-        transform: translateY(24px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
-/* La barra de progreso se llena desde 0 */
 @keyframes llenar {
-    from {
-        width: 0;
-    }
+    from { width: 0; }
 }
 
-/* El nivel en el que estoy "late" para que se vea dónde estoy */
-@keyframes latido {
-    0%, 100% {
-        box-shadow: 0 0 0 4px var(--color-nube), 0 0 0 7px var(--color-naranja);
-    }
-    50% {
-        box-shadow: 0 0 0 4px var(--color-nube), 0 0 0 14px rgba(255, 159, 28, 0.3);
-    }
-}
+.hero-texto, .ficha, .cabecera-pagina-texto { animation: aparecer 0.8s ease-out; }
 
-/* Uso "backwards" para que después de la animación funcionen los otros estilos */
-.hero-texto,
-.cabecera-pagina-texto {
-    animation: aparecer 0.7s ease-out backwards;
-}
-
-.ficha,
-.cabecera-pagina-imagen {
-    animation: aparecer 0.7s 0.2s ease-out backwards;
-}
-
-
-/* ---------- 15. MEDIA QUERIES ---------- */
-
-/* Móviles grandes (576px o más) */
+/* ---------- MEDIA QUERIES ---------- */
 @media all and (min-width: 576px) {
-
-    /* Los botones ya caben uno al lado del otro */
-    .botones {
-        flex-direction: row;
-        flex-wrap: wrap;
-    }
-
-    .favicono-tamanos .tamano-movil {
-        display: flex;
-    }
-
-    /* Datos rápidos: ahora en fila y con el texto debajo del número */
-    .datos-rapidos {
-        flex-direction: row;
-        flex-wrap: wrap;
-        gap: 24px 32px;
-    }
-
-    .datos-rapidos li {
-        display: block;
-    }
-
-    .datos-rapidos strong {
-        display: block;
-    }
-
-    /* Historia: dos hitos por fila */
-    .hitos {
-        flex-direction: row;
-        flex-wrap: wrap;
-    }
-
-    .hito {
-        flex: 1 1 40%;
-    }
+    .botones, .datos-rapidos, .hitos { flex-direction: row; flex-wrap: wrap; }
+    .favicono-tamanos .tamano-movil { display: flex; }
+    .datos-rapidos li, .datos-rapidos strong { display: block; }
+    .hito { flex: 1 1 40%; }
 }
 
-/* Tablets (768px o más) */
 @media all and (min-width: 768px) {
+    .tarjetas-tres, .accesos, .etapa-smr { flex-direction: row; }
+    .tarjetas-tres > article, .acceso { flex: 1; }
+    .etapa-smr { align-items: center; }
 
-    .tarjetas-tres,
-    .accesos {
-        flex-direction: row;
-    }
-
-    .tarjetas-tres > article,
-    .acceso {
-        flex: 1;
-    }
-
-    .etapa-smr {
-        flex-direction: row;
-        align-items: center;
-        gap: 24px;
-        padding: 24px 32px;
-    }
-
-    /* Grid de 2 columnas en los módulos y los proyectos */
-    .modulos,
-    .proyectos {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .modulo--destacado {
-        grid-column: span 2;
-        display: flex;
-        align-items: flex-start;
-        gap: 16px;
-    }
-
-    .modulo--destacado .etiqueta {
-        margin-top: 0;
-    }
-
-    .proyecto--destacado {
-        grid-column: span 2;
-    }
-
-    /* Lo que me llevo: 2 x 2 */
-    .aprendizajes {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 32px 48px;
-    }
-
-    .pie-contacto {
-        flex-direction: row;
-        gap: 32px;
-    }
+    /* Grids de 2 columnas. El módulo de DIW y el proyecto destacado ocupan las 2 */
+    .modulos, .proyectos, .aprendizajes { grid-template-columns: repeat(2, 1fr); }
+    .modulo--destacado, .proyecto--destacado { grid-column: span 2; }
+    .modulo--destacado { display: flex; align-items: flex-start; gap: 16px; }
+    .modulo--destacado .etiqueta { margin-top: 0; }
 }
 
-/* Ordenadores (992px o más) */
 @media all and (min-width: 992px) {
+    /* Textos más grandes, como en la guía de estilo */
+    body { font-size: 1.125rem; }
+    h1, .datos-rapidos strong { font-size: 4.5rem; }
+    h2 { font-size: 3rem; }
+    h3 { font-size: 2.25rem; }
+    h4, .tarjeta h3, .razon h3, .aprendizaje h3, .etapa-smr h3 { font-size: 1.5rem; }
+    .titulo-display { font-size: 6rem; }
+    .seccion { padding: 96px 0; }
 
-    /* Tamaños de texto del ordenador (los de la guía de estilo) */
-    :root {
-        --texto-display: 6rem;        /* 96px */
-        --texto-h1: 4.5rem;           /* 72px */
-        --texto-h2: 3rem;             /* 48px */
-        --texto-h3: 2.25rem;          /* 36px */
-        --texto-h4: 1.5rem;           /* 24px */
-        --texto-entradilla: 1.3125rem;/* 21px */
-        --texto-cuerpo: 1.125rem;     /* 18px */
-        --texto-pequeno: 1rem;        /* 16px */
-    }
+    /* Cabecera: ya no hace falta la hamburguesa, el menú va en fila */
+    .cabecera-contenido { height: 88px; }
+    .menu-check, .menu-boton, .menu-lista i, .menu-datos { display: none; }
+    .menu, .menu-check:checked ~ .menu { display: block; position: static; padding: 0; background: none; }
+    .menu-lista { display: flex; gap: 40px; }
+    .menu-lista a { padding: 8px 0; border-bottom: 3px solid transparent; font-family: "Atkinson Hyperlegible", Arial, sans-serif; font-size: 1rem; font-weight: 700; text-transform: none; }
+    .menu-lista a:hover { color: var(--color-cobalto-medio); }
+    .menu-lista .activo { border-bottom-color: var(--color-naranja); color: var(--color-blanco); }
 
-    .seccion {
-        padding: 96px 0;
-    }
+    /* Las cajas pasan a estar en fila */
+    .hero-contenido, .cabecera-pagina-contenido, .favicono, .llamada { flex-direction: row; align-items: center; justify-content: space-between; gap: 64px; }
+    .familias, .ubicacion, .hitos { flex-direction: row; flex-wrap: nowrap; gap: 24px; }
+    .hero { padding: 96px 0 128px; }
+    .ficha { flex: 0 0 400px; }
+    .hero-texto { max-width: 560px; }
+    .cabecera-pagina { padding: 64px 0 96px; }
+    .cabecera-pagina-imagen, .ubicacion-mapa { flex: 0 0 46%; }
+    .cabecera-pagina-texto, .favicono-texto, .hito, .familias > article, .ubicacion-datos { flex: 1; }
+    .ubicacion { gap: 48px; }
+    .cabecera-pagina-imagen img { height: 420px; }
+    .acceso img { height: 260px; }
 
-    .insignia {
-        width: 56px;
-        height: 56px;
-        font-size: 1.5rem;
-    }
+    /* El favicono va primero en el HTML, pero con order lo pongo a la izquierda */
+    .favicono-muestra { order: -1; flex: 0 0 42%; padding: 40px; }
 
-    /* CABECERA: el menú ya se ve siempre y no hace falta la hamburguesa */
-    .cabecera-contenido {
-        height: 88px;
-    }
-
-    .logo img {
-        width: 40px;
-        height: 40px;
-    }
-
-    .logo-nombre {
-        font-size: 1.5rem;
-    }
-
-    .menu-check,
-    .menu-boton {
-        display: none;
-    }
-
-    .menu,
-    .menu-check:checked ~ .menu {
-        display: block;
-        position: static;
-        padding: 0;
-        overflow: visible;
-        background-color: transparent;
-    }
-
-    .menu-lista {
-        display: flex;
-        gap: 40px;
-    }
-
-    .menu-lista a {
-        position: relative;
-        display: block;
-        padding: 8px 0;
-        border-bottom: none;
-        font-family: var(--fuente-texto);
-        font-size: 1rem;
-        font-weight: 700;
-        text-transform: none;
-    }
-
-    .menu-lista a i,
-    .menu-datos {
-        display: none;
-    }
-
-    .menu-lista a.activo {
-        color: var(--color-blanco);
-    }
-
-    .menu-lista a:hover {
-        color: var(--color-cobalto-medio);
-    }
-
-    /* Barra naranja debajo del enlace. Crece al pasar el ratón y se queda fija en la página activa */
-    .menu-lista a::after {
-        content: "";
-        position: absolute;
-        left: 0;
-        bottom: -2px;
-        width: 100%;
-        height: 3px;
-        border-radius: 2px;
-        background-color: var(--color-naranja);
-        transform: scaleX(0);
-        transition: transform 0.25s;
-    }
-
-    .menu-lista a:hover::after,
-    .menu-lista a.activo::after {
-        transform: scaleX(1);
-    }
-
-    /* HERO en dos columnas: texto a la izquierda y ficha a la derecha */
-    .hero {
-        padding: 96px 0 128px;
-    }
-
-    .hero-contenido {
-        flex-direction: row;
-        align-items: center;
-        justify-content: space-between;
-        gap: 64px;
-    }
-
-    .hero-texto {
-        max-width: 560px;
-    }
-
-    .ficha {
-        flex: 0 0 400px;
-    }
-
-    /* MI CAMINO: ahora la línea de niveles va en horizontal */
-    .niveles {
-        display: flex;
-    }
-
-    .nivel {
-        flex: 1;
-        padding: 72px 24px 0 0;
-    }
-
-    .nivel-punto {
-        width: 48px;
-        height: 48px;
-        font-size: 1.125rem;
-    }
-
-    .nivel::before {
-        top: 23px;
-        bottom: auto;
-        left: 48px;
-        right: 0;
-        border-left: none;
-        border-top: 3px solid var(--color-naranja);
-    }
-
-    .nivel-actual::before,
-    .nivel-bloqueado::before {
-        border-left: none;
-        border-top: 3px dashed var(--color-cobalto-medio);
-    }
-
-    .nivel-actual::before {
-        left: 56px;
-    }
-
-    .nivel-anio {
-        margin-top: 12px;
-    }
-
-    /* MI FAVICONO: muestra a la izquierda y razones a la derecha.
-       En el HTML la muestra va después, por eso le pongo order: -1 */
-    .favicono {
-        flex-direction: row;
-        align-items: center;
-        gap: 64px;
-    }
-
-    .favicono-muestra {
-        order: -1;
-        flex: 0 0 42%;
-        padding: 40px;
-    }
-
-    .favicono-texto {
-        flex: 1;
-    }
-
-    .acceso img {
-        height: 260px;
-    }
-
-    /* PÁGINAS INTERIORES: título a la izquierda y foto a la derecha */
-    .cabecera-pagina {
-        padding: 64px 0 96px;
-    }
-
-    .cabecera-pagina-contenido {
-        flex-direction: row;
-        align-items: center;
-        gap: 64px;
-    }
-
-    .cabecera-pagina-texto {
-        flex: 1;
-    }
-
-    .cabecera-pagina-imagen {
-        flex: 0 0 46%;
-    }
-
-    /* EL CENTRO */
-    .hitos {
-        flex-wrap: nowrap;
-        gap: 24px;
-    }
-
-    .hito {
-        flex: 1;
-    }
-
-    .familias {
-        flex-direction: row;
-    }
-
-    .familias > article {
-        flex: 1;
-    }
+    /* Mi camino: ahora la línea va en horizontal (borde de arriba) */
+    .niveles { display: flex; padding-top: 24px; }
+    .nivel { flex: 1; margin: 0; padding: 40px 24px 0 0; border-left: none; border-top: 3px solid var(--color-naranja); }
+    .nivel-actual, .nivel-bloqueado { border-top: 3px dashed var(--color-cobalto-medio); }
+    .nivel-meta { border-top-color: transparent; }
+    .nivel-punto { top: -22px; left: 0; }
 
     /* Los 4 servicios en la misma fila */
-    .servicios > article {
-        flex-basis: 0;
-    }
+    .servicios > article { flex-basis: 0; }
 
-    .ubicacion {
-        flex-direction: row;
-        align-items: flex-start;
-        gap: 48px;
-    }
+    /* GRID de los módulos: 3 columnas en 1º y 4 en 2º */
+    .modulos { gap: 24px; }
+    .modulos-1 { grid-template-columns: repeat(3, 1fr); }
+    .modulos-2 { grid-template-columns: repeat(4, 1fr); }
 
-    .ubicacion-mapa {
-        flex: 0 0 47%;
-    }
-
-    .ubicacion-datos {
-        flex: 1;
-    }
-
-    /* MIS ESTUDIOS */
-    .modulos {
-        gap: 24px;
-    }
-
-    .modulos-1 {
-        grid-template-columns: repeat(3, 1fr);
-    }
-
-    .modulos-2 {
-        grid-template-columns: repeat(4, 1fr);
-    }
-
-    /* Proyectos con grid-template-areas: el destacado ocupa 2 x 2 */
+    /* GRID de los proyectos con áreas: el destacado ocupa 2 x 2 */
     .proyectos {
         grid-template-columns: repeat(4, 1fr);
         grid-template-areas:
@@ -1922,92 +469,23 @@ h4 {
             "calculadora calculadora uml uml";
         gap: 24px;
     }
+    .proyecto--destacado { grid-area: destacado; padding: 32px; }
+    .proyecto-halloween { grid-area: halloween; }
+    .proyecto-padel { grid-area: padel; }
+    .proyecto-netflix { grid-area: netflix; }
+    .proyecto-particulas { grid-area: particulas; }
+    .proyecto-calculadora { grid-area: calculadora; }
+    .proyecto-uml { grid-area: uml; }
 
-    .proyecto--destacado {
-        grid-area: destacado;
-        padding: 32px;
-    }
+    /* Los dos de abajo son anchos: icono a la izquierda */
+    .proyecto-calculadora, .proyecto-uml { display: flex; align-items: flex-start; gap: 16px; }
+    .proyecto-calculadora h3, .proyecto-uml h3 { margin-top: 0; }
 
-    .proyecto-halloween {
-        grid-area: halloween;
-    }
-
-    .proyecto-padel {
-        grid-area: padel;
-    }
-
-    .proyecto-netflix {
-        grid-area: netflix;
-    }
-
-    .proyecto-particulas {
-        grid-area: particulas;
-    }
-
-    .proyecto-calculadora {
-        grid-area: calculadora;
-    }
-
-    .proyecto-uml {
-        grid-area: uml;
-    }
-
-    /* Los dos de abajo son anchos, así que el icono va a la izquierda */
-    .proyecto-calculadora,
-    .proyecto-uml {
-        display: flex;
-        align-items: flex-start;
-        gap: 16px;
-    }
-
-    .proyecto-calculadora h3,
-    .proyecto-uml h3 {
-        margin-top: 0;
-    }
-
-    .llamada {
-        flex-direction: row;
-        align-items: center;
-        justify-content: space-between;
-        padding: 56px;
-    }
-
-    .llamada .botones {
-        flex-shrink: 0;
-    }
+    .llamada { padding: 56px; }
+    .llamada .botones { flex-shrink: 0; }
 }
 
-/* Pantallas grandes (1200px o más) */
 @media all and (min-width: 1200px) {
-
-    .hero-contenido {
-        gap: 96px;
-    }
-
-    .favicono {
-        gap: 96px;
-    }
-
-    .ubicacion {
-        gap: 64px;
-    }
-
-    .nivel {
-        padding-right: 32px;
-    }
-}
-
-/* Si el usuario tiene desactivadas las animaciones en su sistema, las quito */
-@media (prefers-reduced-motion: reduce) {
-
-    html {
-        scroll-behavior: auto;
-    }
-
-    *,
-    *::before,
-    *::after {
-        animation: none !important;
-        transition: none !important;
-    }
+    .hero-contenido, .favicono { gap: 96px; }
+    .ubicacion { gap: 64px; }
 }
