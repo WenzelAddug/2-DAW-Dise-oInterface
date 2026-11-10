@@ -1,0 +1,41 @@
+# Publica la web "Mi instituto" en GitHub Pages cada vez que cambia algo en su carpeta
+name: Publicar la web
+
+on:
+  # Se ejecuta al subir a la rama main cambios de la carpeta de la web
+  push:
+    branches: [main]
+    paths:
+      - "Mi Instituto Diseño Interface (Fase2)/**"
+  # También se puede lanzar a mano desde la pestaña Actions
+  workflow_dispatch:
+
+# Permisos que necesita para publicar en GitHub Pages
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Si llegan dos publicaciones a la vez, la segunda espera a que acabe la primera
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  publicar:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Descargar el repositorio
+        uses: actions/checkout@v4
+      - name: Preparar GitHub Pages
+        uses: actions/configure-pages@v5
+      - name: Subir la carpeta de la web
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: "Mi Instituto Diseño Interface (Fase2)"
+      - name: Publicar en GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v5
