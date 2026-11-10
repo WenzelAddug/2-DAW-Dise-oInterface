@@ -252,9 +252,9 @@ h4, .tarjeta h3, .razon h3, .aprendizaje h3, .etapa-smr h3 { font-size: 1.375rem
 .ficha-lista i, .progreso strong { color: var(--color-cobalto); }
 .ficha-lista i { width: 20px; }
 
-/* Barra de progreso (se llena con la animación "llenar") */
+/* Barra de progreso (se llena con la animación "llenar", después de que aparezcan los datos de la ficha) */
 .barra { height: 8px; overflow: hidden; border-radius: 4px; background-color: var(--color-cobalto-claro); }
-.barra-relleno { display: block; width: 55%; height: 100%; background-color: var(--color-naranja); animation: llenar 1.5s ease-out; }
+.barra-relleno { display: block; width: 55%; height: 100%; background-color: var(--color-naranja); animation: llenar 1.2s 1.4s ease-out both; }
 
 /* Mi camino: en el móvil la línea va en vertical (es el borde izquierdo de cada nivel) */
 .nivel { position: relative; margin-left: 19px; padding: 0 0 32px 40px; border-left: 3px solid var(--color-naranja); }
@@ -378,7 +378,7 @@ h4, .tarjeta h3, .razon h3, .aprendizaje h3, .etapa-smr h3 { font-size: 1.375rem
 .pie-contacto i { margin-right: 6px; color: var(--color-naranja); }
 .pie-legal { width: 100%; padding-top: 24px; border-top: 1px solid rgba(255, 255, 255, 0.3); font-size: 0.8125rem; }
 
-/* ANIMACIONES */
+/* ANIMACIONES (todas con CSS, sin JavaScript) */
 @keyframes aparecer {
     from { opacity: 0; transform: translateY(24px); }
     to { opacity: 1; transform: translateY(0); }
@@ -388,7 +388,148 @@ h4, .tarjeta h3, .razon h3, .aprendizaje h3, .etapa-smr h3 { font-size: 1.375rem
     from { width: 0; }
 }
 
-.hero-texto, .ficha, .cabecera-pagina-texto { animation: aparecer 0.8s ease-out; }
+/* Entra desde abajo y un poco girada, como una carta que te reparten */
+@keyframes repartir {
+    from { opacity: 0; transform: translateY(60px) rotate(6deg); }
+    to { opacity: 1; transform: translateY(0) rotate(0); }
+}
+
+/* La sombra naranja de la ficha sale cuando la carta ya ha llegado */
+@keyframes sacar-sombra {
+    from { box-shadow: 0 0 0 var(--color-naranja); }
+}
+
+/* Aparece creciendo, con un pequeño rebote al final */
+@keyframes rebotar {
+    from { opacity: 0; transform: scale(0.6); }
+    70% { opacity: 1; transform: scale(1.1); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+/* Sube y baja despacio, como si flotara */
+@keyframes flotar {
+    50% { transform: translateY(-8px); }
+}
+
+/* Gira a un lado y a otro (el mando del logo y el candado del nivel bloqueado) */
+@keyframes sacudir {
+    25% { transform: rotate(-12deg); }
+    75% { transform: rotate(12deg); }
+}
+
+/* Onda que sale del punto "Estás aquí" */
+@keyframes onda {
+    from { opacity: 0.8; transform: scale(1); }
+    to { opacity: 0; transform: scale(2); }
+}
+
+/* La foto se va descubriendo de izquierda a derecha */
+@keyframes descubrir {
+    from { clip-path: inset(0 100% 0 0); }
+    to { clip-path: inset(0 0 0 0); }
+}
+
+/* El menú del móvil baja desde la cabecera */
+@keyframes bajar {
+    from { opacity: 0; transform: translateY(-16px); }
+}
+
+/* Al cargar la página los textos de arriba entran uno detrás de otro (cada uno con un poco más de retraso) */
+.hero-texto > *, .cabecera-pagina-texto > * { animation: aparecer 0.6s ease-out both; }
+.hero-texto > :nth-child(2), .cabecera-pagina-texto > :nth-child(2) { animation-delay: 0.1s; }
+.hero-texto > :nth-child(3), .cabecera-pagina-texto > :nth-child(3) { animation-delay: 0.2s; }
+.hero-texto > :nth-child(4) { animation-delay: 0.3s; }
+.chip i { animation: sacudir 0.6s 0.9s; }
+
+/* Ficha de jugador: llega la carta, le sale la sombra, aparecen los datos y al final se llena la barra */
+.ficha { animation: repartir 0.7s 0.2s ease-out both, sacar-sombra 0.4s 0.9s ease-out both; }
+.ficha-nivel { animation: rebotar 0.5s 1s both; }
+.ficha-foto { animation: flotar 4s 1.5s ease-in-out infinite; }
+.ficha-lista li { animation: aparecer 0.4s ease-out both; }
+.ficha-lista li:nth-child(1) { animation-delay: 0.9s; }
+.ficha-lista li:nth-child(2) { animation-delay: 1s; }
+.ficha-lista li:nth-child(3) { animation-delay: 1.1s; }
+.ficha-lista li:nth-child(4) { animation-delay: 1.2s; }
+
+/* Cabecera de "El centro" y "Mis estudios": la foto se descubre y los datos entran con rebote */
+.cabecera-pagina-imagen img { animation: descubrir 0.9s 0.2s ease-out both; }
+.datos-rapidos li, .recorrido li { animation: rebotar 0.5s both; }
+.datos-rapidos li:nth-child(1), .recorrido li:nth-child(1) { animation-delay: 0.5s; }
+.datos-rapidos li:nth-child(2), .recorrido li:nth-child(2) { animation-delay: 0.65s; }
+.datos-rapidos li:nth-child(3), .recorrido li:nth-child(3) { animation-delay: 0.8s; }
+
+/* Menú del móvil: baja desde la cabecera, los enlaces entran de uno en uno y la X aparece con rebote */
+.menu-check:checked ~ .menu { animation: bajar 0.3s ease-out; }
+.menu-check:checked ~ .menu li { animation: aparecer 0.4s ease-out both; }
+.menu-check:checked ~ .menu li:nth-child(2) { animation-delay: 0.08s; }
+.menu-check:checked ~ .menu li:nth-child(3) { animation-delay: 0.16s; }
+.menu-check:checked + .menu-boton .icono-cerrar { animation: rebotar 0.3s; }
+
+/* Mi camino: del punto "Estás aquí" sale una onda que se repite. El favicono grande flota */
+.nivel-actual .nivel-punto::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border: 3px solid var(--color-naranja);
+    border-radius: 50%;
+    animation: onda 1.8s ease-out infinite;
+}
+.favicono-grande { animation: flotar 4s ease-in-out infinite; }
+
+/* Transiciones para que los cambios al pasar el ratón no sean de golpe */
+.saltar { transition: top 0.2s; }
+.menu-lista a, .pie a { transition: color 0.2s, border-color 0.2s; }
+.tarjeta, .acceso, .insignia, .boton i { transition: transform 0.2s, box-shadow 0.2s; }
+.navegador img { transition: transform 0.6s; }
+
+/* Al pulsar el botón principal se hunde, como la tecla de un mando */
+.boton-principal:active { transform: translateY(3px); box-shadow: 0 1px 0 var(--color-tinta); }
+
+/* Efectos al pasar el ratón. "hover: hover" hace que solo se apliquen si hay ratón (en el móvil no) */
+@media (hover: hover) {
+    .logo:hover img { animation: sacudir 0.5s; }
+    .boton:hover i { transform: translateY(-3px); }
+
+    /* Las tarjetas se levantan y les sale una sombra dura, como la de la ficha */
+    .tarjeta:hover, .acceso:hover { transform: translate(-3px, -3px); box-shadow: 6px 6px 0 var(--color-cobalto-medio); }
+    .familia-mia:hover, .modulo--destacado:hover, .acceso-oscuro:hover { box-shadow: 6px 6px 0 var(--color-naranja); }
+    .servicios .tarjeta:hover, .acceso-azul:hover { box-shadow: 6px 6px 0 var(--color-tinta); }
+    .tarjeta:hover .insignia, .razon:hover .insignia, .aprendizaje:hover .insignia, .etapa-smr:hover .insignia { transform: rotate(-8deg) scale(1.1); }
+
+    /* La captura de la web se acerca un poco, y el candado y la bandera de Mi camino se mueven */
+    .proyecto--destacado:hover .navegador img { transform: scale(1.05); }
+    .nivel-bloqueado:hover .nivel-punto i, .nivel-meta:hover .nivel-punto i { animation: sacudir 0.5s; }
+}
+
+/* APARECER AL HACER SCROLL
+   Con animation-timeline: view() la animación no avanza con el tiempo sino con el scroll: empieza cuando
+   el elemento asoma por abajo de la pantalla y termina cuando ya ha entrado entero.
+   Con @supports solo se usa en los navegadores que lo entienden; en los demás todo se ve desde el principio.
+   Uso "translate" en vez de "transform" para que no choque con el transform del hover de las tarjetas. */
+@keyframes entrar {
+    from { opacity: 0; translate: 0 40px; }
+    to { opacity: 1; translate: 0 0; }
+}
+
+@supports (animation-timeline: view()) {
+    .encabezado-seccion, .nivel, .razon, .favicono-muestra, .tarjeta, .acceso, .hito, .etapa-smr,
+    .curso-titulo, .proyecto--destacado, .aprendizaje, .llamada, .ubicacion-mapa, .otros-proyectos {
+        animation: entrar linear both;
+        animation-timeline: view();
+        animation-range: entry 0% entry 100%;
+    }
+
+    /* Los que van en la misma fila empiezan cada uno un poco más tarde, para que entren en cascada */
+    .niveles > :nth-child(2), .tarjetas-tres > :nth-child(2), .hitos > :nth-child(2), .familias > :nth-child(2), .accesos > :nth-child(2), .servicios > :nth-child(2) { animation-range: entry 20% entry 120%; }
+    .niveles > :nth-child(3), .tarjetas-tres > :nth-child(3), .hitos > :nth-child(3), .familias > :nth-child(3), .servicios > :nth-child(3) { animation-range: entry 40% entry 140%; }
+    .niveles > :nth-child(4), .hitos > :nth-child(4), .servicios > :nth-child(4) { animation-range: entry 60% entry 160%; }
+    .niveles > :nth-child(5), .hitos > :nth-child(5) { animation-range: entry 80% entry 180%; }
+}
+
+/* CAMBIO DE PÁGINA
+   Al ir de una página a otra el contenido se funde en lugar de cambiar de golpe.
+   De momento funciona en Chrome, Edge y Safari; en los demás navegadores la página cambia como siempre. */
+@view-transition { navigation: auto; }
 
 /* MEDIA QUERIES */
 @media all and (min-width: 576px) {
@@ -488,4 +629,11 @@ h4, .tarjeta h3, .razon h3, .aprendizaje h3, .etapa-smr h3 { font-size: 1.375rem
 @media all and (min-width: 1200px) {
     .hero-contenido, .favicono { gap: 96px; }
     .ubicacion { gap: 64px; }
+}
+
+/* ACCESIBILIDAD: si la persona tiene activado "reducir movimiento" en su sistema, quito las animaciones */
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation: none !important; transition: none !important; }
+    html { scroll-behavior: auto; }
+    @view-transition { navigation: none; }
 }

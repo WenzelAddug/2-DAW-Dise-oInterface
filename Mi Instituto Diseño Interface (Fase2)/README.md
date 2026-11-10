@@ -24,9 +24,21 @@ Para verla solo hay que abrir `index.html` en el navegador.
 ## Qué he usado
 
 - HTML5 con etiquetas semánticas (header, nav, main, section, article, aside, figure, footer).
-- CSS3: variables, Flexbox, Grid (con grid-template-areas), media queries mobile first (576, 768, 992 y 1200 px), transiciones y animaciones sencillas.
+- CSS3: variables, Flexbox, Grid (con grid-template-areas), media queries mobile first (576, 768, 992 y 1200 px), transiciones y animaciones.
 - Menú hamburguesa para el móvil hecho solo con CSS (con un checkbox).
 - Accesibilidad: textos alternativos, foco visible con el teclado y enlace para saltar al contenido.
+
+## Animaciones
+
+Todas están hechas solo con CSS, sin JavaScript. Están en el apartado "ANIMACIONES" de [`estilos.css`](css/estilos.css):
+
+- Al cargar la página: los textos entran uno detrás de otro, la ficha llega como una carta que te reparten, le sale la sombra naranja y se llena la barra de progreso.
+- Al hacer scroll: las tarjetas y los niveles van apareciendo en cascada (`animation-timeline: view()`).
+- Al pasar el ratón: las tarjetas se levantan con una sombra dura y los iconos giran un poco. El botón principal se hunde al pulsarlo.
+- En el móvil: el menú baja desde la cabecera y los enlaces entran de uno en uno.
+- En "Mi camino": del punto "Estás aquí" sale una onda que se repite.
+- Al cambiar de página el contenido se funde en lugar de cambiar de golpe (`@view-transition`).
+- Si alguien tiene activado "reducir movimiento" en su sistema, las animaciones se quitan (`prefers-reduced-motion`).
 
 ## Créditos
 
