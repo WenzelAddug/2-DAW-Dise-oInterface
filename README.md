@@ -10,6 +10,14 @@ Trabajos del módulo **Diseño de Interfaces Web (DIW)** de 2º de DAW, curso 20
 
 La carpeta tiene su propio README con el detalle de las páginas, las carpetas, las animaciones y los créditos.
 
+## Ver la web
+
+Está publicada con GitHub Pages en esta dirección:
+
+**<https://wenzeladdug.github.io/2-DAW-Dise-oInterface/>**
+
+Cada vez que subo a la rama `main` un cambio de la carpeta de la web, el workflow [`publicar.yml`](.github/workflows/publicar.yml) la vuelve a publicar sola.
+
 ## Cómo probarlo
 
 No hay que instalar nada. Clona el repositorio y abre `index.html` en el navegador:
