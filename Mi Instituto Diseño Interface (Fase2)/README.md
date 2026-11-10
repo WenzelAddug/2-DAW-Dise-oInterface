@@ -11,7 +11,7 @@ Es la web del prototipo que hice en Figma en la fase 1, pasada a HTML5 y CSS3.
 - [`centro.html`](centro.html): El centro. Historia, estudios, instalaciones y cómo llegar. Maquetada con **Flexbox**.
 - [`estudios.html`](estudios.html): Mis estudios. Módulos, proyectos y lo que me llevo. Maquetada con **CSS Grid**.
 
-Para verla solo hay que abrir `index.html` en el navegador.
+Para verla solo hay que abrir `index.html` en el navegador. También está publicada en <https://wenzeladdug.github.io/2-DAW-Dise-oInterface/>.
 
 ## Carpetas
 
